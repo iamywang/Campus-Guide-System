@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GuideWindow</class>
+ <widget class="QMainWindow" name="GuideWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>基于Qt5的校园导游系统 v1.0</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../Resources/multiplaces.png</normaloff>../Resources/multiplaces.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="TitleLabel">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>基于Qt5的校园导游系统 v1.0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>1</x>
+      <y>61</y>
+      <width>182</width>
+      <height>449</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="Left_Choosing">
+     <item>
+      <widget class="QPushButton" name="button_left_1">
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>信息录入</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/writeinfo.png</normaloff>../Resources/writeinfo.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="button_left_2">
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>信息查询</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/searchinfo.png</normaloff>../Resources/searchinfo.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="button_left_3">
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>路径查询</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/findroad.png</normaloff>../Resources/findroad.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="button_left_4">
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>多景点查询</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>../Resources/multiplaces.png</normaloff>../Resources/multiplaces.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>40</width>
+         <height>40</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="pix_label_1">
+       <property name="minimumSize">
+        <size>
+         <width>180</width>
+         <height>180</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../Resources/auth.jpg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="pix_label_2">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Powered by Y.Wang</string>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>50</y>
+      <width>600</width>
+      <height>530</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>3</number>
+    </property>
+    <widget class="QWidget" name="page_1">
+     <widget class="QLabel" name="info_title">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>250</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>信息录入</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="info_label_1">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>60</y>
+        <width>100</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>景点编号</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="info_label_2">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>60</y>
+        <width>100</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>景点名称</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="info_label_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>120</y>
+        <width>100</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>景点简介</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="info_text_1">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>64</y>
+        <width>180</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="info_text_2">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>64</y>
+        <width>180</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="info_text_3">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>124</y>
+        <width>480</width>
+        <height>200</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="info_button_1">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>340</y>
+        <width>180</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>录入信息</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="info_text_5">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>404</y>
+        <width>180</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="info_label_5">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>400</y>
+        <width>100</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>道路起点</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="info_text_4">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>404</y>
+        <width>180</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="info_label_4">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>400</y>
+        <width>100</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>道路终点</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="info_label_6">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>460</y>
+        <width>100</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>长度</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="info_text_6">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>464</y>
+        <width>180</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="info_button_2">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>460</y>
+        <width>180</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>录入道路</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QLabel" name="search_title">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>250</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>信息查询</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="search_label_1">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>60</y>
+        <width>100</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>景点名称</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="search_text_1">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>64</y>
+        <width>280</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="search_button_1">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>60</y>
+        <width>180</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>查询景点信息</string>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="search_text_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>120</y>
+        <width>580</width>
+        <height>410</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <widget class="QLabel" name="road_title">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>250</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>路径查询</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="road_label_1">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>60</y>
+        <width>100</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>道路起点</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="road_text_1">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>64</y>
+        <width>180</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="road_text_2">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>64</y>
+        <width>180</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="road_label_2">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>60</y>
+        <width>100</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>道路终点</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="road_text_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>180</y>
+        <width>580</width>
+        <height>350</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="road_button_1">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>120</y>
+        <width>180</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>查询路径</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_4">
+     <widget class="QLabel" name="multi_title">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>250</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>多景点查询</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="multi_text_1">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>64</y>
+        <width>180</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="multi_label_2">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>60</y>
+        <width>100</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>道路终点</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="multi_button_1">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>120</y>
+        <width>180</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>查询路径</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="multi_label_1">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>60</y>
+        <width>100</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>道路起点</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="multi_text_2">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>64</y>
+        <width>180</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="multi_text_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>180</y>
+        <width>580</width>
+        <height>350</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
