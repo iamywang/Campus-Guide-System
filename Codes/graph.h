@@ -18,7 +18,7 @@ typedef struct
     stack<int> backup;
 } Path;
 
-class Gragh
+class Graph
 {
     TVertex vertex[20];
     // 用于储存搜索中路径的权值
@@ -27,7 +27,7 @@ class Gragh
     stack<int> stk;
   public:
     // 初始化地图
-    Gragh();
+    Graph();
     // 输入地点信息
     void setInfo(int num, string name, string info);
     // 查询地点信息

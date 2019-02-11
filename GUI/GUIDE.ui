@@ -199,7 +199,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_1">
      <widget class="QLabel" name="info_title">
@@ -772,6 +772,34 @@
       </property>
      </widget>
     </widget>
+   </widget>
+   <widget class="QLabel" name="IconLabel">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>1</y>
+      <width>61</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../Resources/multiplaces.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
   </widget>
  </widget>
