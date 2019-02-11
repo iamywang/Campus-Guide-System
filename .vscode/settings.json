@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "typeinfo": "cpp",
+        "ratio": "cpp",
+        "climits": "cpp",
+        "iostream": "cpp"
+    }
+}
