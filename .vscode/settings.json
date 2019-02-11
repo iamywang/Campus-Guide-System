@@ -3,6 +3,7 @@
         "typeinfo": "cpp",
         "ratio": "cpp",
         "climits": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "ostream": "cpp"
     }
 }

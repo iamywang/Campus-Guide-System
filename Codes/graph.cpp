@@ -24,9 +24,11 @@ void Graph::setInfo(int num, string name, string info)
 // 查询地点信息
 void Graph::getInfo(int num)
 {
-    cout << "景点编号：" << num << endl
+    cout << "##############################" << endl
+         << "景点编号：" << num << endl
          << "景点名称：" << vertex[num].place << endl
-         << "景点介绍：" << vertex[num].info << endl;
+         << "景点介绍：" << vertex[num].info << endl
+         << "##############################" << endl;
 }
 // 输入新的路径
 void Graph::setPath(int x, int y, int dis)
@@ -81,13 +83,11 @@ void Graph::getPath(int x, int y)
     }
 
     // 递归输出最短路径
-    cout << "-----------------------" << endl
-         << endl;
-    cout << "从 " << vertex[x].place << " 到 " << vertex[y].place << " 的最短路线为：";
+    cout << "##############################" << endl
+         << "从 " << vertex[x].place << " 到 " << vertex[y].place << " 的最短路径为：";
     DFS(x, y);
     cout << endl
-         << endl
-         << "-----------------------" << endl;
+         << "##############################" << endl;
 }
 // 深度优先搜索输出路径
 void Graph::DFS(int x, int y)
