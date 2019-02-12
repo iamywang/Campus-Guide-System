@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../Resources/multiplaces.png</normaloff>../Resources/multiplaces.png</iconset>
+    <normaloff>../Resources/main.png</normaloff>../Resources/main.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="TitleLabel">
@@ -776,9 +776,9 @@
    <widget class="QLabel" name="IconLabel">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>200</x>
       <y>1</y>
-      <width>61</width>
+      <width>48</width>
       <height>48</height>
      </rect>
     </property>
@@ -792,7 +792,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../Resources/multiplaces.png</pixmap>
+     <pixmap>../Resources/main.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>

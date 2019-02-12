@@ -24,7 +24,7 @@ QT_BEGIN_NAMESPACE
 
 class Ui_GuideWindow
 {
-  public:
+public:
     QWidget *centralwidget;
     QLabel *TitleLabel;
     QWidget *layoutWidget;
@@ -82,7 +82,7 @@ class Ui_GuideWindow
             GuideWindow->setObjectName(QString::fromUtf8("GuideWindow"));
         GuideWindow->resize(800, 600);
         QIcon icon;
-        icon.addFile(QString::fromUtf8("../Resources/multiplaces.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8("../Resources/main.png"), QSize(), QIcon::Normal, QIcon::Off);
         GuideWindow->setWindowIcon(icon);
         centralwidget = new QWidget(GuideWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -134,7 +134,9 @@ class Ui_GuideWindow
         button_left_4 = new QPushButton(layoutWidget);
         button_left_4->setObjectName(QString::fromUtf8("button_left_4"));
         button_left_4->setMinimumSize(QSize(180, 50));
-        button_left_4->setIcon(icon);
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8("../Resources/multiplaces.png"), QSize(), QIcon::Normal, QIcon::Off);
+        button_left_4->setIcon(icon4);
         button_left_4->setIconSize(QSize(40, 40));
 
         Left_Choosing->addWidget(button_left_4);
@@ -323,9 +325,9 @@ class Ui_GuideWindow
         stackedWidget->addWidget(page_4);
         IconLabel = new QLabel(centralwidget);
         IconLabel->setObjectName(QString::fromUtf8("IconLabel"));
-        IconLabel->setGeometry(QRect(180, 1, 61, 48));
+        IconLabel->setGeometry(QRect(200, 1, 48, 48));
         IconLabel->setMinimumSize(QSize(48, 48));
-        IconLabel->setPixmap(QPixmap(QString::fromUtf8("../Resources/multiplaces.png")));
+        IconLabel->setPixmap(QPixmap(QString::fromUtf8("../Resources/main.png")));
         IconLabel->setScaledContents(true);
         IconLabel->setAlignment(Qt::AlignCenter);
         GuideWindow->setCentralWidget(centralwidget);
@@ -333,6 +335,7 @@ class Ui_GuideWindow
         retranslateUi(GuideWindow);
 
         stackedWidget->setCurrentIndex(0);
+
 
         QMetaObject::connectSlotsByName(GuideWindow);
     } // setupUi
@@ -369,15 +372,14 @@ class Ui_GuideWindow
         multi_label_1->setText(QApplication::translate("GuideWindow", "\351\201\223\350\267\257\350\265\267\347\202\271", nullptr));
         IconLabel->setText(QString());
     } // retranslateUi
+
 };
 
-namespace Ui
-{
-class GuideWindow : public Ui_GuideWindow
-{
-};
+namespace Ui {
+    class GuideWindow: public Ui_GuideWindow {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
 #endif // GUIDE_H
+
