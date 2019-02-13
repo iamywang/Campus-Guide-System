@@ -1,14 +1,3 @@
-/********************************************************************************
-** Form generated from reading UI file 'guideWindowDNgdWl.ui'
-**
-** Created by: Qt User Interface Compiler version 5.12.0
-**
-** WARNING! All changes made in this file will be lost when recompiling UI file!
-********************************************************************************/
-
-#ifndef GUIDEWINDOWDNGDWL_H
-#define GUIDEWINDOWDNGDWL_H
-
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
@@ -19,21 +8,25 @@
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-
-QT_BEGIN_NAMESPACE
-
+#include "graph.cpp"
 class Ui_GuideWindow
 {
-  private slots:
-    void setPage_1();
-    void setPage_2();
-    void setPage_3();
-    void setPage_4();
-    void setPlaceInfo();
-    void setPathInfo();
-    void getPlaceInfo();
-    void getMinPath();
-    void getAllPath();
+    public slots:
+    void setPlaceInfo()
+    {
+    }
+    void setPathInfo()
+    {
+    }
+    void getPlaceInfo()
+    {
+    }
+    void getMinPath()
+    {
+    }
+    void getAllPath()
+    {
+    }
 
   public:
     QWidget *centralwidget;
@@ -344,19 +337,18 @@ class Ui_GuideWindow
         GuideWindow->setCentralWidget(centralwidget);
 
         retranslateUi(GuideWindow);
-        QObject::connect(button_left_1, SIGNAL(clicked()), GuideWindow, SLOT(setPage_1()));
-        QObject::connect(button_left_2, SIGNAL(clicked()), GuideWindow, SLOT(setPage_2()));
-        QObject::connect(button_left_3, SIGNAL(clicked()), GuideWindow, SLOT(setPage_3()));
-        QObject::connect(button_left_4, SIGNAL(clicked()), GuideWindow, SLOT(setPage_4()));
-        QObject::connect(info_button_1, SIGNAL(clicked()), GuideWindow, SLOT(setPlaceInfo()));
-        QObject::connect(info_button_2, SIGNAL(clicked()), GuideWindow, SLOT(setPathInfo()));
-        QObject::connect(search_button_1, SIGNAL(clicked()), GuideWindow, SLOT(getPlaceInfo()));
-        QObject::connect(road_button_1, SIGNAL(clicked()), GuideWindow, SLOT(getMinPath()));
-        QObject::connect(multi_button_1, SIGNAL(clicked()), GuideWindow, SLOT(getAllPath()));
+
+        QObject::connect(button_left_1, &QAbstractButton::clicked, [stackedWidget]() mutable { stackedWidget->setCurrentIndex(0); });
+        QObject::connect(button_left_2, &QAbstractButton::clicked, [stackedWidget]() mutable { stackedWidget->setCurrentIndex(1); });
+        QObject::connect(button_left_3, &QAbstractButton::clicked, [stackedWidget]() mutable { stackedWidget->setCurrentIndex(2); });
+        QObject::connect(button_left_4, &QAbstractButton::clicked, [stackedWidget]() mutable { stackedWidget->setCurrentIndex(3); });
+        // QObject::connect(info_button_1, &QAbstractButton::clicked, this, &Ui_GuideWindow::setPlaceInfo);
+        // QObject::connect(info_button_2, &QAbstractButton::clicked, this, &Ui_GuideWindow::setPathInfo);
+        // QObject::connect(search_button_1, &QAbstractButton::clicked, this, &Ui_GuideWindow::getPlaceInfo);
+        // QObject::connect(road_button_1, &QAbstractButton::clicked, this, &Ui_GuideWindow::getMinPath);
+        // QObject::connect(multi_button_1, &QAbstractButton::clicked, this, &Ui_GuideWindow::getAllPath);
 
         stackedWidget->setCurrentIndex(0);
-
-        QMetaObject::connectSlotsByName(GuideWindow);
     } // setupUi
 
     void retranslateUi(QMainWindow *GuideWindow)
@@ -392,14 +384,3 @@ class Ui_GuideWindow
         IconLabel->setText(QString());
     } // retranslateUi
 };
-
-namespace Ui
-{
-class GuideWindow : public Ui_GuideWindow
-{
-};
-} // namespace Ui
-
-QT_END_NAMESPACE
-
-#endif // GUIDEWINDOWDNGDWL_H

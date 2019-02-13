@@ -26,16 +26,17 @@ class Graph
     int AdjacencyMatrix[20][20];
     stack<int> stk;
   public:
+    string res = "";
     // 初始化地图
     Graph();
     // 输入地点信息
     void setInfo(int num, string name, string info);
     // 查询地点信息
-    void getInfo(int num);
+    string getInfo(int num);
     // 输入新的路径
     void setPath(int x, int y, int dis);
     // 寻找路径
-    void getPath(int x, int y);
+    string getPath(int x, int y);
     // 深度优先搜索输出路径
     void DFS(int x, int y);
     // 将栈清空

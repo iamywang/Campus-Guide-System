@@ -42,7 +42,7 @@ int main()
         {
             int num;
             cin >> num;
-            g.getInfo(num);
+            cout << g.getInfo(num) << endl;
         }
         else if (c == 3)
         {
@@ -54,7 +54,7 @@ int main()
         {
             int x, y;
             cin >> x >> y;
-            g.getPath(x, y);
+            cout << g.getPath(x, y) << endl;
         }
         else if (c == 5)
         {
@@ -62,6 +62,7 @@ int main()
             cin >> x >> y;
             cout << "##############################" << endl;
             g.getAllPath(x, y, true);
+            cout << g.res << endl;
             cout << "##############################" << endl;
         }
     }
