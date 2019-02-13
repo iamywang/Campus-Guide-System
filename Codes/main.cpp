@@ -1,4 +1,4 @@
-#include "guide.h"
+#include "guideWindow.h"
 
 int main(int argc, char *argv[])
 {

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>基于Qt5的校园导游系统 v1.0</string>
+   <string>基于Qt5的校园导游系统 v1.1</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -35,7 +35,7 @@
      </font>
     </property>
     <property name="text">
-     <string>基于Qt5的校园导游系统 v1.0</string>
+     <string>基于Qt5的校园导游系统 v1.1</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -106,7 +106,7 @@
         </size>
        </property>
        <property name="text">
-        <string>路径查询</string>
+        <string>最短路径查询</string>
        </property>
        <property name="icon">
         <iconset>
@@ -129,7 +129,7 @@
         </size>
        </property>
        <property name="text">
-        <string>多景点查询</string>
+        <string>所有路径查询</string>
        </property>
        <property name="icon">
         <iconset>
@@ -556,7 +556,7 @@
        </font>
       </property>
       <property name="text">
-       <string>路径查询</string>
+       <string>最短路径查询</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -651,7 +651,7 @@
        </font>
       </property>
       <property name="text">
-       <string>查询路径</string>
+       <string>查询最短路径</string>
       </property>
      </widget>
     </widget>
@@ -673,7 +673,7 @@
        </font>
       </property>
       <property name="text">
-       <string>多景点查询</string>
+       <string>所有路径查询</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -727,7 +727,7 @@
        </font>
       </property>
       <property name="text">
-       <string>查询路径</string>
+       <string>查询所有路径</string>
       </property>
      </widget>
      <widget class="QLabel" name="multi_label_1">
@@ -804,5 +804,161 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>button_left_1</sender>
+   <signal>clicked()</signal>
+   <receiver>GuideWindow</receiver>
+   <slot>setPage_1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>78</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>191</x>
+     <y>192</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>button_left_2</sender>
+   <signal>clicked()</signal>
+   <receiver>GuideWindow</receiver>
+   <slot>setPage_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>104</x>
+     <y>151</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>193</x>
+     <y>260</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>button_left_3</sender>
+   <signal>clicked()</signal>
+   <receiver>GuideWindow</receiver>
+   <slot>setPage_3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>52</x>
+     <y>207</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>button_left_4</sender>
+   <signal>clicked()</signal>
+   <receiver>GuideWindow</receiver>
+   <slot>setPage_4()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>23</x>
+     <y>263</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>191</x>
+     <y>488</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>info_button_1</sender>
+   <signal>clicked()</signal>
+   <receiver>GuideWindow</receiver>
+   <slot>setPlaceInfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>645</x>
+     <y>415</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>171</x>
+     <y>543</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>info_button_2</sender>
+   <signal>clicked()</signal>
+   <receiver>GuideWindow</receiver>
+   <slot>setPathInfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>704</x>
+     <y>538</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>107</x>
+     <y>571</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>search_button_1</sender>
+   <signal>clicked()</signal>
+   <receiver>GuideWindow</receiver>
+   <slot>getPlaceInfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>657</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>557</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>road_button_1</sender>
+   <signal>clicked()</signal>
+   <receiver>GuideWindow</receiver>
+   <slot>getMinPath()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>695</x>
+     <y>184</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>156</x>
+     <y>524</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>multi_button_1</sender>
+   <signal>clicked()</signal>
+   <receiver>GuideWindow</receiver>
+   <slot>getAllPath()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>696</x>
+     <y>189</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>188</x>
+     <y>534</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>setPage_1()</slot>
+  <slot>setPage_2()</slot>
+  <slot>setPage_3()</slot>
+  <slot>setPage_4()</slot>
+  <slot>setPlaceInfo()</slot>
+  <slot>getPlaceInfo()</slot>
+  <slot>setPathInfo()</slot>
+  <slot>getMinPath()</slot>
+  <slot>getAllPath()</slot>
+ </slots>
 </ui>

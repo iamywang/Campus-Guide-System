@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'GUIDE.ui'
+** Form generated from reading UI file 'guideWindowDNgdWl.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.12.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef GUIDE_H
-#define GUIDE_H
+#ifndef GUIDEWINDOWDNGDWL_H
+#define GUIDEWINDOWDNGDWL_H
 
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
@@ -24,7 +24,18 @@ QT_BEGIN_NAMESPACE
 
 class Ui_GuideWindow
 {
-public:
+  private slots:
+    void setPage_1();
+    void setPage_2();
+    void setPage_3();
+    void setPage_4();
+    void setPlaceInfo();
+    void setPathInfo();
+    void getPlaceInfo();
+    void getMinPath();
+    void getAllPath();
+
+  public:
     QWidget *centralwidget;
     QLabel *TitleLabel;
     QWidget *layoutWidget;
@@ -333,21 +344,29 @@ public:
         GuideWindow->setCentralWidget(centralwidget);
 
         retranslateUi(GuideWindow);
+        QObject::connect(button_left_1, SIGNAL(clicked()), GuideWindow, SLOT(setPage_1()));
+        QObject::connect(button_left_2, SIGNAL(clicked()), GuideWindow, SLOT(setPage_2()));
+        QObject::connect(button_left_3, SIGNAL(clicked()), GuideWindow, SLOT(setPage_3()));
+        QObject::connect(button_left_4, SIGNAL(clicked()), GuideWindow, SLOT(setPage_4()));
+        QObject::connect(info_button_1, SIGNAL(clicked()), GuideWindow, SLOT(setPlaceInfo()));
+        QObject::connect(info_button_2, SIGNAL(clicked()), GuideWindow, SLOT(setPathInfo()));
+        QObject::connect(search_button_1, SIGNAL(clicked()), GuideWindow, SLOT(getPlaceInfo()));
+        QObject::connect(road_button_1, SIGNAL(clicked()), GuideWindow, SLOT(getMinPath()));
+        QObject::connect(multi_button_1, SIGNAL(clicked()), GuideWindow, SLOT(getAllPath()));
 
         stackedWidget->setCurrentIndex(0);
-
 
         QMetaObject::connectSlotsByName(GuideWindow);
     } // setupUi
 
     void retranslateUi(QMainWindow *GuideWindow)
     {
-        GuideWindow->setWindowTitle(QApplication::translate("GuideWindow", "\345\237\272\344\272\216Qt5\347\232\204\346\240\241\345\233\255\345\257\274\346\270\270\347\263\273\347\273\237 v1.0", nullptr));
-        TitleLabel->setText(QApplication::translate("GuideWindow", "\345\237\272\344\272\216Qt5\347\232\204\346\240\241\345\233\255\345\257\274\346\270\270\347\263\273\347\273\237 v1.0", nullptr));
+        GuideWindow->setWindowTitle(QApplication::translate("GuideWindow", "\345\237\272\344\272\216Qt5\347\232\204\346\240\241\345\233\255\345\257\274\346\270\270\347\263\273\347\273\237 v1.1", nullptr));
+        TitleLabel->setText(QApplication::translate("GuideWindow", "\345\237\272\344\272\216Qt5\347\232\204\346\240\241\345\233\255\345\257\274\346\270\270\347\263\273\347\273\237 v1.1", nullptr));
         button_left_1->setText(QApplication::translate("GuideWindow", "\344\277\241\346\201\257\345\275\225\345\205\245", nullptr));
         button_left_2->setText(QApplication::translate("GuideWindow", "\344\277\241\346\201\257\346\237\245\350\257\242", nullptr));
-        button_left_3->setText(QApplication::translate("GuideWindow", "\350\267\257\345\276\204\346\237\245\350\257\242", nullptr));
-        button_left_4->setText(QApplication::translate("GuideWindow", "\345\244\232\346\231\257\347\202\271\346\237\245\350\257\242", nullptr));
+        button_left_3->setText(QApplication::translate("GuideWindow", "\346\234\200\347\237\255\350\267\257\345\276\204\346\237\245\350\257\242", nullptr));
+        button_left_4->setText(QApplication::translate("GuideWindow", "\346\211\200\346\234\211\350\267\257\345\276\204\346\237\245\350\257\242", nullptr));
         pix_label_1->setText(QString());
         pix_label_2->setText(QApplication::translate("GuideWindow", "Powered by Y.Wang", nullptr));
         info_title->setText(QApplication::translate("GuideWindow", "\344\277\241\346\201\257\345\275\225\345\205\245", nullptr));
@@ -362,24 +381,25 @@ public:
         search_title->setText(QApplication::translate("GuideWindow", "\344\277\241\346\201\257\346\237\245\350\257\242", nullptr));
         search_label_1->setText(QApplication::translate("GuideWindow", "\346\231\257\347\202\271\345\220\215\347\247\260", nullptr));
         search_button_1->setText(QApplication::translate("GuideWindow", "\346\237\245\350\257\242\346\231\257\347\202\271\344\277\241\346\201\257", nullptr));
-        road_title->setText(QApplication::translate("GuideWindow", "\350\267\257\345\276\204\346\237\245\350\257\242", nullptr));
+        road_title->setText(QApplication::translate("GuideWindow", "\346\234\200\347\237\255\350\267\257\345\276\204\346\237\245\350\257\242", nullptr));
         road_label_1->setText(QApplication::translate("GuideWindow", "\351\201\223\350\267\257\350\265\267\347\202\271", nullptr));
         road_label_2->setText(QApplication::translate("GuideWindow", "\351\201\223\350\267\257\347\273\210\347\202\271", nullptr));
-        road_button_1->setText(QApplication::translate("GuideWindow", "\346\237\245\350\257\242\350\267\257\345\276\204", nullptr));
-        multi_title->setText(QApplication::translate("GuideWindow", "\345\244\232\346\231\257\347\202\271\346\237\245\350\257\242", nullptr));
+        road_button_1->setText(QApplication::translate("GuideWindow", "\346\237\245\350\257\242\346\234\200\347\237\255\350\267\257\345\276\204", nullptr));
+        multi_title->setText(QApplication::translate("GuideWindow", "\346\211\200\346\234\211\350\267\257\345\276\204\346\237\245\350\257\242", nullptr));
         multi_label_2->setText(QApplication::translate("GuideWindow", "\351\201\223\350\267\257\347\273\210\347\202\271", nullptr));
-        multi_button_1->setText(QApplication::translate("GuideWindow", "\346\237\245\350\257\242\350\267\257\345\276\204", nullptr));
+        multi_button_1->setText(QApplication::translate("GuideWindow", "\346\237\245\350\257\242\346\211\200\346\234\211\350\267\257\345\276\204", nullptr));
         multi_label_1->setText(QApplication::translate("GuideWindow", "\351\201\223\350\267\257\350\265\267\347\202\271", nullptr));
         IconLabel->setText(QString());
     } // retranslateUi
-
 };
 
-namespace Ui {
-    class GuideWindow: public Ui_GuideWindow {};
+namespace Ui
+{
+class GuideWindow : public Ui_GuideWindow
+{
+};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // GUIDE_H
-
+#endif // GUIDEWINDOWDNGDWL_H
