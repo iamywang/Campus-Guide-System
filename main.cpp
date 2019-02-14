@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     QMainWindow w;
     Ui_GuideWindow ui;
     ui.setupUi(&w);
+    ui.setEvents();
     w.show();
     return a.exec();
 }
