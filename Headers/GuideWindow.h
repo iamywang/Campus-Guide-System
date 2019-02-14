@@ -8,27 +8,10 @@
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-#include "graph.cpp"
+
 class Ui_GuideWindow
 {
-    public slots:
-    void setPlaceInfo()
-    {
-    }
-    void setPathInfo()
-    {
-    }
-    void getPlaceInfo()
-    {
-    }
-    void getMinPath()
-    {
-    }
-    void getAllPath()
-    {
-    }
-
-  public:
+public:
     QWidget *centralwidget;
     QLabel *TitleLabel;
     QWidget *layoutWidget;
@@ -86,7 +69,7 @@ class Ui_GuideWindow
             GuideWindow->setObjectName(QString::fromUtf8("GuideWindow"));
         GuideWindow->resize(800, 600);
         QIcon icon;
-        icon.addFile(QString::fromUtf8("../Resources/main.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8("Resources/main.png"), QSize(), QIcon::Normal, QIcon::Off);
         GuideWindow->setWindowIcon(icon);
         centralwidget = new QWidget(GuideWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -109,7 +92,7 @@ class Ui_GuideWindow
         button_left_1->setObjectName(QString::fromUtf8("button_left_1"));
         button_left_1->setMinimumSize(QSize(180, 50));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8("../Resources/writeinfo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8("Resources/writeinfo.png"), QSize(), QIcon::Normal, QIcon::Off);
         button_left_1->setIcon(icon1);
         button_left_1->setIconSize(QSize(40, 40));
 
@@ -119,7 +102,7 @@ class Ui_GuideWindow
         button_left_2->setObjectName(QString::fromUtf8("button_left_2"));
         button_left_2->setMinimumSize(QSize(180, 50));
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8("../Resources/searchinfo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QString::fromUtf8("Resources/searchinfo.png"), QSize(), QIcon::Normal, QIcon::Off);
         button_left_2->setIcon(icon2);
         button_left_2->setIconSize(QSize(40, 40));
 
@@ -129,7 +112,7 @@ class Ui_GuideWindow
         button_left_3->setObjectName(QString::fromUtf8("button_left_3"));
         button_left_3->setMinimumSize(QSize(180, 50));
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8("../Resources/findroad.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QString::fromUtf8("Resources/findroad.png"), QSize(), QIcon::Normal, QIcon::Off);
         button_left_3->setIcon(icon3);
         button_left_3->setIconSize(QSize(40, 40));
 
@@ -139,7 +122,7 @@ class Ui_GuideWindow
         button_left_4->setObjectName(QString::fromUtf8("button_left_4"));
         button_left_4->setMinimumSize(QSize(180, 50));
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8("../Resources/multiplaces.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QString::fromUtf8("Resources/multiplaces.png"), QSize(), QIcon::Normal, QIcon::Off);
         button_left_4->setIcon(icon4);
         button_left_4->setIconSize(QSize(40, 40));
 
@@ -148,7 +131,7 @@ class Ui_GuideWindow
         pix_label_1 = new QLabel(layoutWidget);
         pix_label_1->setObjectName(QString::fromUtf8("pix_label_1"));
         pix_label_1->setMinimumSize(QSize(180, 180));
-        pix_label_1->setPixmap(QPixmap(QString::fromUtf8("../Resources/auth.jpg")));
+        pix_label_1->setPixmap(QPixmap(QString::fromUtf8("Resources/auth.jpg")));
         pix_label_1->setScaledContents(true);
 
         Left_Choosing->addWidget(pix_label_1);
@@ -331,24 +314,17 @@ class Ui_GuideWindow
         IconLabel->setObjectName(QString::fromUtf8("IconLabel"));
         IconLabel->setGeometry(QRect(200, 1, 48, 48));
         IconLabel->setMinimumSize(QSize(48, 48));
-        IconLabel->setPixmap(QPixmap(QString::fromUtf8("../Resources/main.png")));
+        IconLabel->setPixmap(QPixmap(QString::fromUtf8("Resources/main.png")));
         IconLabel->setScaledContents(true);
         IconLabel->setAlignment(Qt::AlignCenter);
         GuideWindow->setCentralWidget(centralwidget);
 
         retranslateUi(GuideWindow);
 
-        QObject::connect(button_left_1, &QAbstractButton::clicked, [stackedWidget]() mutable { stackedWidget->setCurrentIndex(0); });
-        QObject::connect(button_left_2, &QAbstractButton::clicked, [stackedWidget]() mutable { stackedWidget->setCurrentIndex(1); });
-        QObject::connect(button_left_3, &QAbstractButton::clicked, [stackedWidget]() mutable { stackedWidget->setCurrentIndex(2); });
-        QObject::connect(button_left_4, &QAbstractButton::clicked, [stackedWidget]() mutable { stackedWidget->setCurrentIndex(3); });
-        // QObject::connect(info_button_1, &QAbstractButton::clicked, this, &Ui_GuideWindow::setPlaceInfo);
-        // QObject::connect(info_button_2, &QAbstractButton::clicked, this, &Ui_GuideWindow::setPathInfo);
-        // QObject::connect(search_button_1, &QAbstractButton::clicked, this, &Ui_GuideWindow::getPlaceInfo);
-        // QObject::connect(road_button_1, &QAbstractButton::clicked, this, &Ui_GuideWindow::getMinPath);
-        // QObject::connect(multi_button_1, &QAbstractButton::clicked, this, &Ui_GuideWindow::getAllPath);
-
         stackedWidget->setCurrentIndex(0);
+
+
+        QMetaObject::connectSlotsByName(GuideWindow);
     } // setupUi
 
     void retranslateUi(QMainWindow *GuideWindow)
@@ -383,4 +359,7 @@ class Ui_GuideWindow
         multi_label_1->setText(QApplication::translate("GuideWindow", "\351\201\223\350\267\257\350\265\267\347\202\271", nullptr));
         IconLabel->setText(QString());
     } // retranslateUi
+
+    void setEvents();
+    
 };

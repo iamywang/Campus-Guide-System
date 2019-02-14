@@ -1,4 +1,4 @@
-#include "graph.cpp"
+#include "Graph.cpp"
 using namespace std;
 
 int main()
@@ -42,7 +42,7 @@ int main()
         {
             int num;
             cin >> num;
-            cout << g.getInfo(num) << endl;
+            g.getInfo(num);
         }
         else if (c == 3)
         {
@@ -54,7 +54,7 @@ int main()
         {
             int x, y;
             cin >> x >> y;
-            cout << g.getPath(x, y) << endl;
+            g.getPath(x, y);
         }
         else if (c == 5)
         {
@@ -62,7 +62,6 @@ int main()
             cin >> x >> y;
             cout << "##############################" << endl;
             g.getAllPath(x, y, true);
-            cout << g.res << endl;
             cout << "##############################" << endl;
         }
     }
