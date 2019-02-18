@@ -3,70 +3,58 @@
 // 设定左侧切换事件
 void Ui_GuideWindow::setLeftEvents()
 {
-    QObject::connect(button_left_1, &QAbstractButton::clicked,
-                     [stackedWidget]() { stackedWidget->setCurrentIndex(0); });
-    QObject::connect(button_left_2, &QAbstractButton::clicked,
-                     [stackedWidget]() { stackedWidget->setCurrentIndex(1); });
-    QObject::connect(button_left_3, &QAbstractButton::clicked,
-                     [stackedWidget]() { stackedWidget->setCurrentIndex(2); });
-    QObject::connect(button_left_4, &QAbstractButton::clicked,
-                     [stackedWidget]() { stackedWidget->setCurrentIndex(3); });
-    QObject::connect(button_left_5, &QAbstractButton::clicked,
-                     [stackedWidget]() { stackedWidget->setCurrentIndex(4); });
+    QObject::connect(button_left_1, &QAbstractButton::clicked, [=]() mutable { stackedWidget->setCurrentIndex(0); });
+    QObject::connect(button_left_2, &QAbstractButton::clicked, [=]() mutable { stackedWidget->setCurrentIndex(1); });
+    QObject::connect(button_left_3, &QAbstractButton::clicked, [=]() mutable { stackedWidget->setCurrentIndex(2); });
+    QObject::connect(button_left_4, &QAbstractButton::clicked, [=]() mutable { stackedWidget->setCurrentIndex(3); });
+    QObject::connect(button_left_5, &QAbstractButton::clicked, [=]() mutable { stackedWidget->setCurrentIndex(4); });
 }
 
 // 设定导游系统事件
 void Ui_GuideWindow::setMainEvents()
 {
-    QObject::connect(info_button_1, &QAbstractButton::clicked,
-                     [info_text_1, info_text_2, info_text_3]() {
-                         int num = info_text_1->toPlainText().toInt();
-                         string name = info_text_2->toPlainText().toStdString();
-                         string info = info_text_3->toPlainText().toStdString();
-                         g.setInfo(num, name, info);
-                     });
-    QObject::connect(info_button_2, &QAbstractButton::clicked,
-                     [info_text_4, info_text_5, info_text_6]() {
-                         int num1 = info_text_4->toPlainText().toInt();
-                         int num2 = info_text_5->toPlainText().toInt();
-                         int dis = info_text_6->toPlainText().toInt();
-                         g.setPath(num1, num2, dis);
-                     });
-    QObject::connect(search_button_1, &QAbstractButton::clicked,
-                     [search_text_1, search_text_2]() mutable {
-                         int num = search_text_1->toPlainText().toInt();
-                         string result = "";
-                         g.getInfo(num, result);
-                         search_text_2->setPlainText(QString::fromStdString(result));
-                     });
-    QObject::connect(road_button_1, &QAbstractButton::clicked,
-                     [road_text_1, road_text_2, road_text_3]() mutable {
-                         int num1 = road_text_1->toPlainText().toInt();
-                         int num2 = road_text_2->toPlainText().toInt();
-                         string result = "";
-                         g.getPath(num1, num2, result);
-                         result = "从 " + g.vertex[x].place + " 到 " + g.vertex[y].place + " 的最短路径为：\n" + result;
-                         road_text_3->setPlainText(QString::fromStdString(result));
-                     });
-    QObject::connect(multi_button_1, &QAbstractButton::clicked,
-                     [multi_text_1, multi_text_2, multi_text_3]() mutable {
-                         int num1 = multi_text_1->toPlainText().toInt();
-                         int num2 = multi_text_2->toPlainText().toInt();
-                         string result = "";
-                         g.getAllPath(num1, num2, true, result);
-                         result = "从 " + g.vertex[x].place + " 到 " + g.vertex[y].place + " 的所有路径为：\n" + result;
-                         multi_text_3->setPlainText(QString::fromStdString(result));
-                     });
-    QObject::connect(plenty_button_1, &QAbstractButton::clicked,
-                     [plenty_text_1, plenty_text_2, plenty_text_3, plenty_text_4]() mutable {
-                         int num1 = plenty_text_1->toPlainText().toInt();
-                         int num2 = plenty_text_2->toPlainText().toInt();
-                         int num3 = plenty_text_3->toPlainText().toInt();
-                         string result = "";
-                         g.multiPath(num1, num2, num3, result);
-                         result = "从 " + g.vertex[x].place + " 经过 " + g.vertex[y].place + " 到 " + g.vertex[z].place + " 的最短路径为：\n" + result;
-                         plenty_text_4->setPlainText(QString::fromStdString(result));
-                     });
+    QObject::connect(info_button_1, &QAbstractButton::clicked, [=]() mutable {
+        int num = info_text_1->toPlainText().toInt();
+        string name = info_text_2->toPlainText().toStdString();
+        string info = info_text_3->toPlainText().toStdString();
+        g.setInfo(num, name, info);
+    });
+    QObject::connect(info_button_2, &QAbstractButton::clicked, [=]() mutable {
+        int num1 = info_text_4->toPlainText().toInt();
+        int num2 = info_text_5->toPlainText().toInt();
+        int dis = info_text_6->toPlainText().toInt();
+        g.setPath(num1, num2, dis);
+    });
+    QObject::connect(search_button_1, &QAbstractButton::clicked, [=]() mutable {
+        int num = search_text_1->toPlainText().toInt();
+        string result = g.getInfo(num);
+        search_text_2->setPlainText(QString::fromStdString(result));
+    });
+    QObject::connect(road_button_1, &QAbstractButton::clicked, [=]() mutable {
+        int x = road_text_1->toPlainText().toInt();
+        int y = road_text_2->toPlainText().toInt();
+        string result = "";
+        g.getPath(x, y, result);
+        result = "从 " + g.vertex[x].place + " 到 " + g.vertex[y].place + " 的最短路径为：\n" + result;
+        road_text_3->setPlainText(QString::fromStdString(result));
+    });
+    QObject::connect(multi_button_1, &QAbstractButton::clicked, [=]() mutable {
+        int x = multi_text_1->toPlainText().toInt();
+        int y = multi_text_2->toPlainText().toInt();
+        string result = "";
+        g.getAllPath(x, y, true, result);
+        result = "从 " + g.vertex[x].place + " 到 " + g.vertex[y].place + " 的所有路径为：\n" + result;
+        multi_text_3->setPlainText(QString::fromStdString(result));
+    });
+    QObject::connect(plenty_button_1, &QAbstractButton::clicked, [=]() mutable {
+        int x = plenty_text_1->toPlainText().toInt();
+        int y = plenty_text_2->toPlainText().toInt();
+        int z = plenty_text_3->toPlainText().toInt();
+        string result = "";
+        g.multiPath(x, y, z, result);
+        result = "从 " + g.vertex[x].place + " 经过 " + g.vertex[y].place + " 到 " + g.vertex[z].place + " 的最短路径为：\n" + result;
+        plenty_text_4->setPlainText(QString::fromStdString(result));
+    });
 }
 
 // setupUi

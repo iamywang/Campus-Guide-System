@@ -26,7 +26,7 @@ string Graph::getInfo(int num)
 {
     string result = "";
     result += "##############################";
-    result += "\n景点编号：" + num;
+    result += "\n景点编号：" + to_string(num);
     result += "\n景点名称：" + vertex[num].place;
     result += "\n景点介绍：" + vertex[num].info;
     result += "\n##############################\n";
@@ -152,7 +152,7 @@ void Graph::getAllPath(int x, int y, bool refresh, string result)
     }
 }
 //多景点查询
-void multiPath(int x, int y, int z, string result)
+void Graph::multiPath(int x, int y, int z, string result)
 {
     string r1 = "";
     string r2 = "";
