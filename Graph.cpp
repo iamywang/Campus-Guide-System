@@ -22,13 +22,15 @@ void Graph::setInfo(int num, string name, string info)
     vertex[num].info = info;
 }
 // 查询地点信息
-void Graph::getInfo(int num)
+string Graph::getInfo(int num)
 {
-    cout << "##############################" << endl
-         << "景点编号：" << num << endl
-         << "景点名称：" << vertex[num].place << endl
-         << "景点介绍：" << vertex[num].info << endl
-         << "##############################" << endl;
+    string result = "";
+    result += "##############################";
+    result += "\n景点编号：" + num;
+    result += "\n景点名称：" + vertex[num].place;
+    result += "\n景点介绍：" + vertex[num].info;
+    result += "\n##############################\n";
+    return result;
 }
 // 输入新的路径
 void Graph::setPath(int x, int y, int dis)
@@ -37,7 +39,7 @@ void Graph::setPath(int x, int y, int dis)
     AdjacencyMatrix[y][x] = dis;
 }
 // 寻找路径
-void Graph::getPath(int x, int y)
+void Graph::getPath(int x, int y, string result)
 {
     int rest[20] = {0};
     rest[x] = 1;
@@ -83,23 +85,18 @@ void Graph::getPath(int x, int y)
     }
 
     // 递归输出最短路径
-    cout << "##############################" << endl
-         << "从 " << vertex[x].place << " 到 " << vertex[y].place << " 的最短路径为：";
-    DFS(x, y);
-    cout << endl
-         << "##############################" << endl;
+    DFS(x, y, result);
 }
 // 深度优先搜索输出路径
-void Graph::DFS(int x, int y)
+void Graph::DFS(int x, int y, string result)
 {
     if (dis[y].previous.empty())
-        cout << endl
-             << vertex[x].place << " -> " << vertex[y].place;
+        result += "\n" + vertex[x].place + " -> " + vertex[y].place;
     // 将节点所有分支搜索完
     while (!dis[y].previous.empty())
     {
-        DFS(x, dis[y].previous.top());
-        cout << " -> " << vertex[y].place;
+        DFS(x, dis[y].previous.top(), result);
+        result += " -> " + vertex[y].place;
         dis[y].backup.push(dis[y].previous.top());
         dis[y].previous.pop();
     }
@@ -111,7 +108,7 @@ void Graph::DFS(int x, int y)
     }
 }
 // 输出所有简单路径
-void Graph::getAllPath(int x, int y, bool refresh)
+void Graph::getAllPath(int x, int y, bool refresh, string result)
 {
     // 用数组保存简单路径
     static int path[20], count = 0, mark[20] = {0}, start = x;
@@ -139,18 +136,27 @@ void Graph::getAllPath(int x, int y, bool refresh)
             if (i == y)
             {
                 // start 静态变量保存路径起始点
-                cout << vertex[start].place;
+                result += vertex[start].place;
                 for (int p = 0; path[p] != INT_MAX; p++)
-                    cout << " -> " << vertex[path[p]].place;
-                cout << endl;
+                    result += " -> " + vertex[path[p]].place;
+                result += "\n";
                 mark[i] = 0;
                 path[--count] = INT_MAX;
                 return;
             }
-            getAllPath(i, y, false);
+            getAllPath(i, y, false, result);
             // 删除标记
             mark[i] = 0;
             path[--count] = INT_MAX;
         }
     }
+}
+//多景点查询
+void multiPath(int x, int y, int z, string result)
+{
+    string r1 = "";
+    string r2 = "";
+    getPath(x, y, r1);
+    getPath(y, z, r2);
+    result = r1 + " -> " + r2;
 }

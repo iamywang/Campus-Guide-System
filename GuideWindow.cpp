@@ -6,11 +6,11 @@ void Ui_GuideWindow::setEvents()
     QObject::connect(button_left_2, &QAbstractButton::clicked, [stackedWidget]() mutable { stackedWidget->setCurrentIndex(1); });
     QObject::connect(button_left_3, &QAbstractButton::clicked, [stackedWidget]() mutable { stackedWidget->setCurrentIndex(2); });
     QObject::connect(button_left_4, &QAbstractButton::clicked, [stackedWidget]() mutable { stackedWidget->setCurrentIndex(3); });
-    QObject::connect(info_button_1, &QAbstractButton::clicked, [info_text_1, info_text_2, info_text_3]() mutable {});
-    QObject::connect(info_button_2, &QAbstractButton::clicked, [info_text_4, info_text_5, info_text_6]() mutable {});
-    QObject::connect(search_button_1, &QAbstractButton::clicked, [search_text_1, search_text_2]() mutable {});
-    QObject::connect(road_button_1, &QAbstractButton::clicked, [road_text_1, road_text_2]() mutable {});
-    QObject::connect(multi_button_1, &QAbstractButton::clicked, [multi_text_1, multi_text_2]() mutable {});
+    QObject::connect(info_button_1, &QAbstractButton::clicked, [info_text_1, info_text_2, info_text_3]() mutable { g.setInfo(1, "x", "x"); });
+    QObject::connect(info_button_2, &QAbstractButton::clicked, [info_text_4, info_text_5, info_text_6]() mutable { g.setPath(1, 2, 3); });
+    QObject::connect(search_button_1, &QAbstractButton::clicked, [search_text_1, search_text_2]() mutable { g.getInfo(1); });
+    QObject::connect(road_button_1, &QAbstractButton::clicked, [road_text_1, road_text_2]() mutable { g.getPath(1, 2); });
+    QObject::connect(multi_button_1, &QAbstractButton::clicked, [multi_text_1, multi_text_2]() mutable { g.getAllPath(1, 2); });
 }
 
 void Ui_GuideWindow::setupUi(QMainWindow *GuideWindow)
