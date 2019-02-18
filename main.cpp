@@ -3,10 +3,11 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QMainWindow w;
+    QMainWindow window;
     Ui_GuideWindow ui;
-    ui.setupUi(&w);
-    ui.setEvents();
-    w.show();
+    ui.setupUi(&window);
+    ui.setLeftEvents();
+    ui.setMainEvents();
+    window.show();
     return a.exec();
 }

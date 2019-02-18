@@ -12,9 +12,9 @@
 
 class Ui_GuideWindow
 {
-  public:
-    Graph g;
-    QWidget *centralwidget;
+public:
+  Graph g;
+ QWidget *centralwidget;
     QLabel *TitleLabel;
     QWidget *layoutWidget;
     QVBoxLayout *Left_Choosing;
@@ -22,8 +22,10 @@ class Ui_GuideWindow
     QPushButton *button_left_2;
     QPushButton *button_left_3;
     QPushButton *button_left_4;
+    QPushButton *button_left_5;
     QLabel *pix_label_1;
     QLabel *pix_label_2;
+    QLabel *pix_label_3;
     QStackedWidget *stackedWidget;
     QWidget *page_1;
     QLabel *info_title;
@@ -63,9 +65,25 @@ class Ui_GuideWindow
     QLabel *multi_label_1;
     QTextEdit *multi_text_2;
     QTextEdit *multi_text_3;
+    QWidget *page_5;
+    QTextEdit *plenty_text_1;
+    QTextEdit *plenty_text_3;
+    QLabel *plenty_title;
+    QLabel *plenty_label_1;
+    QLabel *plenty_label_2;
+    QPushButton *plenty_button_1;
+    QTextEdit *plenty_text_2;
+    QLabel *plenty_label_3;
+    QTextEdit *plenty_text_4;
     QLabel *IconLabel;
 
-    void setupUi(QMainWindow *GuideWindow);
-    void retranslateUi(QMainWindow *GuideWindow);
-    void setEvents();
+public:
+  // setupUi
+  void setupUi(QMainWindow *GuideWindow);
+  // retranslateUi
+  void retranslateUi(QMainWindow *GuideWindow);
+  // 设定左侧切换事件
+  void setLeftEvents();
+  // 设定导游系统事件
+  void setMainEvents();
 };
