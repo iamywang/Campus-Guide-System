@@ -4,23 +4,25 @@
 Graph::Graph()
 {
     // 初始化邻接矩阵为∞
-    for (int i = 0; i < 20; i++)
-        for (int j = 0; j < 20; j++)
+    for (int i = 0; i < PLACES; i++)
+        for (int j = 0; j < PLACES; j++)
             AdjacencyMatrix[i][j] = INT_MAX;
     // 对角线初始化为0
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < PLACES; i++)
     {
         AdjacencyMatrix[i][i] = 0;
         vertex[i].place = "";
         vertex[i].info = "";
     }
 }
+
 // 输入地点信息
 void Graph::setInfo(int num, string name, string info)
 {
     vertex[num].place = name;
     vertex[num].info = info;
 }
+
 // 查询地点信息
 string Graph::getInfo(int num)
 {
@@ -32,34 +34,55 @@ string Graph::getInfo(int num)
     result += "\n##############################\n";
     return result;
 }
+
+// 删除景点及其道路
+void Graph::delInfo(int num)
+{
+    for (int i = 0; i < PLACES; i++)
+        AdjacencyMatrix[i][num] = INT_MAX;
+    for (int j = 0; j < PLACES; j++)
+        AdjacencyMatrix[num][j] = INT_MAX;
+    AdjacencyMatrix[num][num] = 0;
+    vertex[num].place = "";
+    vertex[num].info = "";
+}
+
 // 输入新的路径
 void Graph::setPath(int x, int y, int dis)
 {
     AdjacencyMatrix[x][y] = dis;
     AdjacencyMatrix[y][x] = dis;
 }
-// 寻找路径
-void Graph::getPath(int x, int y, string result)
+
+// 删除路径
+void Graph::delPath(int x, int y)
 {
-    int rest[20] = {0};
+    AdjacencyMatrix[x][y] = INT_MAX;
+    AdjacencyMatrix[y][x] = INT_MAX;
+}
+
+// 寻找路径
+void Graph::getPath(int x, int y, string &result)
+{
+    int rest[PLACES] = {0};
     rest[x] = 1;
     // 初始化路径权值
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < PLACES; i++)
     {
         dis[i].weight = AdjacencyMatrix[x][i];
         cleanStack(dis[i].previous);
         cleanStack(dis[i].backup);
     }
 
-    for (int count = 1; count != 20; count++)
+    for (int count = 1; count != PLACES; count++)
     {
         // 寻找权值最小顶点
         int min = INT_MAX;
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < PLACES; i++)
             if (rest[i] == 0)
             {
                 min = i;
-                for (i += 1; i < 20; i++)
+                for (i += 1; i < PLACES; i++)
                     if (rest[i] == 0 and dis[min].weight > dis[i].weight)
                         min = i;
             }
@@ -69,7 +92,7 @@ void Graph::getPath(int x, int y, string result)
             rest[min] = 1;
 
         // 更新路径权值
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < PLACES; i++)
         {
             if (rest[i] == 1)
                 continue;
@@ -87,16 +110,17 @@ void Graph::getPath(int x, int y, string result)
     // 递归输出最短路径
     DFS(x, y, result);
 }
+
 // 深度优先搜索输出路径
-void Graph::DFS(int x, int y, string result)
+void Graph::DFS(int x, int y, string &result)
 {
     if (dis[y].previous.empty())
-        result += "\n" + vertex[x].place + " -> " + vertex[y].place;
+        result = result + "\n" + vertex[x].place + " -> " + vertex[y].place;
     // 将节点所有分支搜索完
     while (!dis[y].previous.empty())
     {
         DFS(x, dis[y].previous.top(), result);
-        result += " -> " + vertex[y].place;
+        result = result + " -> " + vertex[y].place;
         dis[y].backup.push(dis[y].previous.top());
         dis[y].previous.pop();
     }
@@ -107,15 +131,16 @@ void Graph::DFS(int x, int y, string result)
         dis[y].backup.pop();
     }
 }
+
 // 输出所有简单路径
-void Graph::getAllPath(int x, int y, bool refresh, string result)
+void Graph::getAllPath(int x, int y, bool refresh, string &result)
 {
     // 用数组保存简单路径
-    static int path[20], count = 0, mark[20] = {0}, start = x;
+    static int path[PLACES], count = 0, mark[PLACES] = {0}, start = x;
     // 在反复调用递归函数时刷新静态变量
     if (refresh)
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < PLACES; i++)
         {
             path[i] = INT_MAX;
             mark[i] = 0;
@@ -123,7 +148,7 @@ void Graph::getAllPath(int x, int y, bool refresh, string result)
         count = 0;
         start = x;
     }
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < PLACES; i++)
     {
         if (AdjacencyMatrix[x][i] != INT_MAX and mark[i] == 0)
         {
@@ -136,10 +161,10 @@ void Graph::getAllPath(int x, int y, bool refresh, string result)
             if (i == y)
             {
                 // start 静态变量保存路径起始点
-                result += vertex[start].place;
+                result = result + vertex[start].place;
                 for (int p = 0; path[p] != INT_MAX; p++)
-                    result += " -> " + vertex[path[p]].place;
-                result += "\n";
+                    result = result + " -> " + vertex[path[p]].place;
+                result = result + "\n";
                 mark[i] = 0;
                 path[--count] = INT_MAX;
                 return;
@@ -151,12 +176,13 @@ void Graph::getAllPath(int x, int y, bool refresh, string result)
         }
     }
 }
+
 //多景点查询
-void Graph::multiPath(int x, int y, int z, string result)
+void Graph::multiPath(int x, int y, int z, string &result)
 {
     string r1 = "";
     string r2 = "";
     getPath(x, y, r1);
     getPath(y, z, r2);
-    result = r1 + " -> " + r2;
+    result = r1 + r2;
 }

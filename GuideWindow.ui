@@ -6,37 +6,49 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1000</width>
+    <height>750</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>750</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>基于Qt5的校园导游系统 v2.0</string>
+   <string>基于Qt5的校园导游系统 v2.1</string>
   </property>
   <property name="windowIcon">
    <iconset>
     <normaloff>Resources/main.png</normaloff>Resources/main.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="minimumSize">
+    <size>
+     <width>1000</width>
+     <height>750</height>
+    </size>
+   </property>
    <widget class="QLabel" name="TitleLabel">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>800</width>
-      <height>50</height>
+      <width>1000</width>
+      <height>64</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>微软雅黑</family>
-      <pointsize>12</pointsize>
+      <pointsize>16</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>基于Qt5的校园导游系统 v2.0</string>
+     <string>基于Qt5的校园导游系统 v2.1</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -46,19 +58,34 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>50</y>
-      <width>182</width>
-      <height>545</height>
+      <y>60</y>
+      <width>202</width>
+      <height>682</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+     </font>
+    </property>
     <layout class="QVBoxLayout" name="Left_Choosing">
+     <property name="spacing">
+      <number>7</number>
+     </property>
      <item>
       <widget class="QPushButton" name="button_left_1">
        <property name="minimumSize">
         <size>
-         <width>180</width>
-         <height>50</height>
+         <width>200</width>
+         <height>60</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="text">
         <string>信息录入</string>
@@ -69,8 +96,8 @@
        </property>
        <property name="iconSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>48</width>
+         <height>48</height>
         </size>
        </property>
       </widget>
@@ -79,9 +106,16 @@
       <widget class="QPushButton" name="button_left_2">
        <property name="minimumSize">
         <size>
-         <width>180</width>
-         <height>50</height>
+         <width>200</width>
+         <height>60</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="text">
         <string>信息查询</string>
@@ -92,8 +126,8 @@
        </property>
        <property name="iconSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>48</width>
+         <height>48</height>
         </size>
        </property>
       </widget>
@@ -102,9 +136,16 @@
       <widget class="QPushButton" name="button_left_3">
        <property name="minimumSize">
         <size>
-         <width>180</width>
-         <height>50</height>
+         <width>200</width>
+         <height>60</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="text">
         <string>最短路径查询</string>
@@ -115,8 +156,8 @@
        </property>
        <property name="iconSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>48</width>
+         <height>48</height>
         </size>
        </property>
       </widget>
@@ -125,21 +166,28 @@
       <widget class="QPushButton" name="button_left_4">
        <property name="minimumSize">
         <size>
-         <width>180</width>
-         <height>50</height>
+         <width>200</width>
+         <height>60</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="text">
         <string>所有路径查询</string>
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>Resources/findroad.png</normaloff>Resources/findroad.png</iconset>
+         <normaloff>Resources/allroad.png</normaloff>Resources/allroad.png</iconset>
        </property>
        <property name="iconSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>48</width>
+         <height>48</height>
         </size>
        </property>
       </widget>
@@ -148,9 +196,16 @@
       <widget class="QPushButton" name="button_left_5">
        <property name="minimumSize">
         <size>
-         <width>180</width>
-         <height>50</height>
+         <width>200</width>
+         <height>60</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
        </property>
        <property name="text">
         <string>多景点查询</string>
@@ -161,8 +216,38 @@
        </property>
        <property name="iconSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>48</width>
+         <height>48</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="button_left_6">
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>关于</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>Resources/about.png</normaloff>Resources/about.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>48</width>
+         <height>48</height>
         </size>
        </property>
       </widget>
@@ -171,9 +256,14 @@
       <widget class="QLabel" name="pix_label_1">
        <property name="minimumSize">
         <size>
-         <width>180</width>
-         <height>180</height>
+         <width>200</width>
+         <height>200</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+        </font>
        </property>
        <property name="text">
         <string/>
@@ -190,12 +280,13 @@
       <widget class="QLabel" name="pix_label_2">
        <property name="minimumSize">
         <size>
-         <width>150</width>
+         <width>200</width>
          <height>32</height>
         </size>
        </property>
        <property name="font">
         <font>
+         <family>微软雅黑</family>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -215,12 +306,13 @@
       <widget class="QLabel" name="pix_label_3">
        <property name="minimumSize">
         <size>
-         <width>150</width>
+         <width>200</width>
          <height>32</height>
         </size>
        </property>
        <property name="font">
         <font>
+         <family>微软雅黑</family>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -245,18 +337,24 @@
     <zorder>pix_label_1</zorder>
     <zorder>button_left_5</zorder>
     <zorder>pix_label_3</zorder>
+    <zorder>button_left_6</zorder>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>50</y>
-      <width>600</width>
-      <height>530</height>
+      <x>202</x>
+      <y>70</y>
+      <width>800</width>
+      <height>680</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+     </font>
+    </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="page_1">
      <widget class="QLabel" name="info_title">
@@ -277,7 +375,7 @@
        </font>
       </property>
       <property name="text">
-       <string>信息录入</string>
+       <string>景点信息维护</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -288,12 +386,13 @@
        <rect>
         <x>0</x>
         <y>60</y>
-        <width>100</width>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>微软雅黑</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -307,14 +406,15 @@
      <widget class="QLabel" name="info_label_2">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>60</y>
-        <width>100</width>
+        <x>0</x>
+        <y>120</y>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>微软雅黑</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -329,13 +429,14 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>120</y>
-        <width>100</width>
+        <y>180</y>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>微软雅黑</family>
         <pointsize>11</pointsize>
        </font>
       </property>
@@ -349,44 +450,60 @@
      <widget class="QTextEdit" name="info_text_1">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>150</x>
         <y>64</y>
-        <width>180</width>
+        <width>410</width>
         <height>32</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+       </font>
       </property>
      </widget>
      <widget class="QTextEdit" name="info_text_2">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>64</y>
-        <width>180</width>
+        <x>150</x>
+        <y>124</y>
+        <width>630</width>
         <height>32</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+       </font>
       </property>
      </widget>
      <widget class="QTextEdit" name="info_text_3">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>124</y>
-        <width>480</width>
-        <height>200</height>
+        <x>150</x>
+        <y>184</y>
+        <width>630</width>
+        <height>180</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+       </font>
       </property>
      </widget>
      <widget class="QPushButton" name="info_button_1">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>340</y>
-        <width>180</width>
+        <x>580</x>
+        <y>390</y>
+        <width>200</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>微软雅黑</family>
         <pointsize>11</pointsize>
         <weight>75</weight>
         <bold>true</bold>
@@ -399,29 +516,35 @@
      <widget class="QTextEdit" name="info_text_5">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>404</y>
-        <width>180</width>
+        <x>550</x>
+        <y>514</y>
+        <width>230</width>
         <height>32</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+       </font>
       </property>
      </widget>
      <widget class="QLabel" name="info_label_5">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>400</y>
-        <width>100</width>
+        <y>510</y>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>微软雅黑</family>
         <pointsize>11</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>道路起点</string>
+       <string>道路起点编号</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -430,29 +553,35 @@
      <widget class="QTextEdit" name="info_text_4">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>404</y>
-        <width>180</width>
+        <x>150</x>
+        <y>514</y>
+        <width>230</width>
         <height>32</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+       </font>
       </property>
      </widget>
      <widget class="QLabel" name="info_label_4">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>400</y>
-        <width>100</width>
+        <x>400</x>
+        <y>510</y>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>微软雅黑</family>
         <pointsize>11</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>道路终点</string>
+       <string>道路终点编号</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -462,18 +591,19 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>460</y>
-        <width>100</width>
+        <y>570</y>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>微软雅黑</family>
         <pointsize>11</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>长度</string>
+       <string>道路长度</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -482,24 +612,30 @@
      <widget class="QTextEdit" name="info_text_6">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>464</y>
-        <width>180</width>
+        <x>150</x>
+        <y>574</y>
+        <width>630</width>
         <height>32</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+       </font>
       </property>
      </widget>
      <widget class="QPushButton" name="info_button_2">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>460</y>
-        <width>180</width>
+        <x>360</x>
+        <y>620</y>
+        <width>200</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
+        <family>微软雅黑</family>
         <pointsize>11</pointsize>
         <weight>75</weight>
         <bold>true</bold>
@@ -507,6 +643,72 @@
       </property>
       <property name="text">
        <string>录入道路</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="info_title_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>450</y>
+        <width>250</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>道路信息维护</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="info_button_3">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>60</y>
+        <width>200</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>删除景点及其道路</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="info_button_4">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>620</y>
+        <width>200</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>删除道路</string>
       </property>
      </widget>
     </widget>
@@ -540,7 +742,7 @@
        <rect>
         <x>0</x>
         <y>60</y>
-        <width>100</width>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
@@ -550,7 +752,7 @@
        </font>
       </property>
       <property name="text">
-       <string>景点名称</string>
+       <string>景点编号</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -559,9 +761,9 @@
      <widget class="QTextEdit" name="search_text_1">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>150</x>
         <y>64</y>
-        <width>280</width>
+        <width>410</width>
         <height>32</height>
        </rect>
       </property>
@@ -569,9 +771,9 @@
      <widget class="QPushButton" name="search_button_1">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>580</x>
         <y>60</y>
-        <width>180</width>
+        <width>200</width>
         <height>40</height>
        </rect>
       </property>
@@ -589,11 +791,32 @@
      <widget class="QTextEdit" name="search_text_2">
       <property name="geometry">
        <rect>
+        <x>20</x>
+        <y>180</y>
+        <width>760</width>
+        <height>480</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="search_label_2">
+      <property name="geometry">
+       <rect>
         <x>0</x>
         <y>120</y>
-        <width>580</width>
-        <height>410</height>
+        <width>150</width>
+        <height>40</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>查询结果</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </widget>
@@ -627,7 +850,7 @@
        <rect>
         <x>0</x>
         <y>60</y>
-        <width>100</width>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
@@ -646,9 +869,9 @@
      <widget class="QTextEdit" name="road_text_1">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>150</x>
         <y>64</y>
-        <width>180</width>
+        <width>230</width>
         <height>32</height>
        </rect>
       </property>
@@ -656,9 +879,9 @@
      <widget class="QTextEdit" name="road_text_2">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>550</x>
         <y>64</y>
-        <width>180</width>
+        <width>230</width>
         <height>32</height>
        </rect>
       </property>
@@ -666,9 +889,9 @@
      <widget class="QLabel" name="road_label_2">
       <property name="geometry">
        <rect>
-        <x>300</x>
+        <x>400</x>
         <y>60</y>
-        <width>100</width>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
@@ -687,19 +910,19 @@
      <widget class="QTextEdit" name="road_text_3">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>20</x>
         <y>180</y>
-        <width>580</width>
-        <height>350</height>
+        <width>760</width>
+        <height>480</height>
        </rect>
       </property>
      </widget>
      <widget class="QPushButton" name="road_button_1">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>580</x>
         <y>120</y>
-        <width>180</width>
+        <width>200</width>
         <height>40</height>
        </rect>
       </property>
@@ -712,6 +935,27 @@
       </property>
       <property name="text">
        <string>查询最短路径</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="road_label_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>120</y>
+        <width>150</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>查询结果</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </widget>
@@ -743,9 +987,9 @@
      <widget class="QTextEdit" name="multi_text_1">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>150</x>
         <y>64</y>
-        <width>180</width>
+        <width>230</width>
         <height>32</height>
        </rect>
       </property>
@@ -753,9 +997,9 @@
      <widget class="QLabel" name="multi_label_2">
       <property name="geometry">
        <rect>
-        <x>300</x>
+        <x>400</x>
         <y>60</y>
-        <width>100</width>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
@@ -774,9 +1018,9 @@
      <widget class="QPushButton" name="multi_button_1">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>580</x>
         <y>120</y>
-        <width>180</width>
+        <width>200</width>
         <height>40</height>
        </rect>
       </property>
@@ -796,7 +1040,7 @@
        <rect>
         <x>0</x>
         <y>60</y>
-        <width>100</width>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
@@ -815,9 +1059,9 @@
      <widget class="QTextEdit" name="multi_text_2">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>550</x>
         <y>64</y>
-        <width>180</width>
+        <width>230</width>
         <height>32</height>
        </rect>
       </property>
@@ -825,11 +1069,32 @@
      <widget class="QTextEdit" name="multi_text_3">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>20</x>
         <y>180</y>
-        <width>580</width>
-        <height>350</height>
+        <width>760</width>
+        <height>490</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="multi_label_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>120</y>
+        <width>150</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>查询结果</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </widget>
@@ -837,20 +1102,20 @@
      <widget class="QTextEdit" name="plenty_text_1">
       <property name="geometry">
        <rect>
-        <x>100</x>
+        <x>150</x>
         <y>64</y>
-        <width>180</width>
+        <width>230</width>
         <height>32</height>
        </rect>
       </property>
      </widget>
-     <widget class="QTextEdit" name="plenty_text_3">
+     <widget class="QTextEdit" name="plenty_text_4">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>20</x>
         <y>240</y>
-        <width>580</width>
-        <height>290</height>
+        <width>760</width>
+        <height>430</height>
        </rect>
       </property>
      </widget>
@@ -883,7 +1148,7 @@
        <rect>
         <x>0</x>
         <y>60</y>
-        <width>100</width>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
@@ -902,9 +1167,9 @@
      <widget class="QLabel" name="plenty_label_2">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>120</y>
-        <width>100</width>
+        <x>400</x>
+        <y>60</y>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
@@ -923,9 +1188,9 @@
      <widget class="QPushButton" name="plenty_button_1">
       <property name="geometry">
        <rect>
-        <x>400</x>
-        <y>180</y>
-        <width>180</width>
+        <x>580</x>
+        <y>120</y>
+        <width>200</width>
         <height>40</height>
        </rect>
       </property>
@@ -943,9 +1208,9 @@
      <widget class="QTextEdit" name="plenty_text_2">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>124</y>
-        <width>180</width>
+        <x>550</x>
+        <y>64</y>
+        <width>230</width>
         <height>32</height>
        </rect>
       </property>
@@ -954,8 +1219,8 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>180</y>
-        <width>100</width>
+        <y>120</y>
+        <width>150</width>
         <height>40</height>
        </rect>
       </property>
@@ -971,14 +1236,61 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QTextEdit" name="plenty_text_4">
+     <widget class="QTextEdit" name="plenty_text_3">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>184</y>
-        <width>180</width>
+        <x>150</x>
+        <y>124</y>
+        <width>230</width>
         <height>32</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="plenty_label_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>180</y>
+        <width>150</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>查询结果</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_6">
+     <widget class="QLabel" name="about_title">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>250</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>关于</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </widget>
@@ -986,17 +1298,22 @@
    <widget class="QLabel" name="IconLabel">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>1</y>
-      <width>48</width>
-      <height>48</height>
+      <x>250</x>
+      <y>2</y>
+      <width>50</width>
+      <height>50</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
-      <width>48</width>
-      <height>48</height>
+      <width>50</width>
+      <height>50</height>
      </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+     </font>
     </property>
     <property name="text">
      <string/>

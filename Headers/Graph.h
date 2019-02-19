@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
 #include <climits>
+#define PLACES 20
 using namespace std;
 
 // 构造表节点
@@ -21,10 +22,10 @@ typedef struct
 class Graph
 {
   public:
-    TVertex vertex[20];
+    TVertex vertex[PLACES];
     // 用于储存搜索中路径的权值
-    Path dis[20];
-    int AdjacencyMatrix[20][20];
+    Path dis[PLACES];
+    int AdjacencyMatrix[PLACES][PLACES];
     stack<int> stk;
 
   public:
@@ -32,14 +33,18 @@ class Graph
     Graph();
     // 输入地点信息
     void setInfo(int num, string name, string info);
+    // 删除景点及其道路
+    void delInfo(int num);
     // 查询地点信息
     string getInfo(int num);
     // 输入新的路径
     void setPath(int x, int y, int dis);
+    // 删除路径
+    void delPath(int x,int y);
     // 寻找路径
-    void getPath(int x, int y, string result);
+    void getPath(int x, int y, string& result);
     // 深度优先搜索输出路径
-    void DFS(int x, int y, string result);
+    void DFS(int x, int y, string& result);
     // 将栈清空
     void cleanStack(stack<int> &stack)
     {
@@ -47,7 +52,7 @@ class Graph
             stack.pop();
     }
     // 输出所有简单路径
-    void getAllPath(int x, int y, bool refresh, string result);
+    void getAllPath(int x, int y, bool refresh, string& result);
     // 多景点查询
-    void multiPath(int x, int y, int z, string result);
+    void multiPath(int x, int y, int z, string& result);
 };
