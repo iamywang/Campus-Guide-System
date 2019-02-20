@@ -54,6 +54,14 @@ public:
   QPushButton *search_button_1;
   QTextEdit *search_text_2;
   QLabel *search_label_2;
+  QLabel *search_title_2;
+  QLabel *search_label_3;
+  QLabel *search_label_4;
+  QTextEdit *search_text_3;
+  QTextEdit *search_text_4;
+  QPushButton *search_button_2;
+  QLabel *search_label_5;
+  QTextEdit *search_text_5;
   QWidget *page_3;
   QLabel *road_title;
   QLabel *road_label_1;
@@ -85,6 +93,7 @@ public:
   QLabel *plenty_label_4;
   QWidget *page_6;
   QLabel *about_title;
+  QLabel *about_label_1;
   QLabel *IconLabel;
 
 public:

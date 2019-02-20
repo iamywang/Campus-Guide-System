@@ -1,7 +1,7 @@
 #include "Graph.cpp"
 using namespace std;
 
-int main()
+int console()
 {
     Graph g;
     string result = "";

@@ -27,11 +27,19 @@ void Graph::setInfo(int num, string name, string info)
 string Graph::getInfo(int num)
 {
     string result = "";
-    result += "##############################";
-    result += "\n景点编号：" + to_string(num);
-    result += "\n景点名称：" + vertex[num].place;
-    result += "\n景点介绍：" + vertex[num].info;
-    result += "\n##############################\n";
+    result = result + "景点编号：" + to_string(num) + "\n";
+    result = result + "景点名称：" + vertex[num].place + "\n";
+    result = result + "景点介绍：" + vertex[num].info + "\n";
+    return result;
+}
+
+// 查询道路信息
+string Graph::getPathInfo(int x, int y)
+{
+    string result = "";
+    result = result + "道路起点：" + to_string(x) + " " + vertex[x].place + "\n";
+    result = result + "道路终点：" + to_string(y) + " " + vertex[y].place + "\n";
+    result = result + "道路长度：" + to_string(AdjacencyMatrix[x][y]) + "\n";
     return result;
 }
 

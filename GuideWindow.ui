@@ -16,8 +16,13 @@
     <height>750</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <family>微软雅黑</family>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>基于Qt5的校园导游系统 v2.1</string>
+   <string>基于Qt5的校园导游系统 v2.1.1</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -48,7 +53,7 @@
      </font>
     </property>
     <property name="text">
-     <string>基于Qt5的校园导游系统 v2.1</string>
+     <string>基于Qt5的校园导游系统 v2.1.1</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -318,7 +323,7 @@
         </font>
        </property>
        <property name="text">
-        <string>2019.2.18</string>
+        <string>2019.2.20</string>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -731,7 +736,7 @@
        </font>
       </property>
       <property name="text">
-       <string>信息查询</string>
+       <string>景点信息查询</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -794,7 +799,7 @@
         <x>20</x>
         <y>180</y>
         <width>760</width>
-        <height>480</height>
+        <height>180</height>
        </rect>
       </property>
      </widget>
@@ -817,6 +822,143 @@
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="search_title_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>380</y>
+        <width>250</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>道路信息查询</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="search_label_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>440</y>
+        <width>150</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>道路起点编号</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="search_label_4">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>440</y>
+        <width>150</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>道路终点编号</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="search_text_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>444</y>
+        <width>230</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="search_text_4">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>444</y>
+        <width>230</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="search_button_2">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>500</y>
+        <width>200</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>查询道路信息</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="search_label_5">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>500</y>
+        <width>150</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>查询结果</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="search_text_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>560</y>
+        <width>760</width>
+        <height>100</height>
+       </rect>
       </property>
      </widget>
     </widget>
@@ -1291,6 +1433,31 @@
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="about_label_1">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>760</width>
+        <height>620</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;更新内容&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;------------------------------------------------------------------------------------------------------------------&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;2019.2.20 &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ff0000;&quot;&gt;Version 2.1.1&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. 新增道路信息查询功能，输入道路起点和终点即可查询道路具体信息&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;------------------------------------------------------------------------------------------------------------------&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;2019.2.19 &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ff0000;&quot;&gt;Version 2.1&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. 界面重新布局&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;2. 新增关于界面&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;3. 修复无法显示路径的bug&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;4. 图标调整&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;5. 景点信息删除功能，可以删除这条编号的景点信息及其所有相关道路信息&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;6. 道路信息删除功能，根据道路起点与终点删除整条道路信息&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;------------------------------------------------------------------------------------------------------------------&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;2019.2.18 &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ff0000;&quot;&gt;Version 2.0&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. 新增多景点查询功能&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;2. 对GUI界面布局进行微调&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;3. 重新设定事件响应方式&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;4. 对QString类型进行深入应用&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;------------------------------------------------------------------------------------------------------------------&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
       </property>
      </widget>
     </widget>
