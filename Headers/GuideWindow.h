@@ -16,17 +16,6 @@ public:
   Graph g;
   QWidget *centralwidget;
   QLabel *TitleLabel;
-  QWidget *layoutWidget;
-  QVBoxLayout *Left_Choosing;
-  QPushButton *button_left_1;
-  QPushButton *button_left_2;
-  QPushButton *button_left_3;
-  QPushButton *button_left_4;
-  QPushButton *button_left_5;
-  QPushButton *button_left_6;
-  QLabel *pix_label_1;
-  QLabel *pix_label_2;
-  QLabel *pix_label_3;
   QStackedWidget *stackedWidget;
   QWidget *page_1;
   QLabel *info_title;
@@ -94,7 +83,22 @@ public:
   QWidget *page_6;
   QLabel *about_title;
   QLabel *about_label_1;
+  QWidget *page_7;
+  QLabel *demo_title;
+  QLabel *demo_label_1;
+  QPushButton *demo_button_1;
   QLabel *IconLabel;
+
+  QPushButton *button_left_1;
+  QPushButton *button_left_2;
+  QPushButton *button_left_3;
+  QPushButton *button_left_4;
+  QPushButton *button_left_5;
+  QPushButton *button_left_6;
+  QPushButton *button_left_7;
+
+  QLabel *pix_label_1;
+  QLabel *pix_label_2;
 
 public:
   // setupUi
@@ -105,4 +109,6 @@ public:
   void setLeftEvents();
   // 设定导游系统事件
   void setMainEvents();
+  // 设定范例地图
+  void setupDemo();
 };
