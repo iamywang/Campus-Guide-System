@@ -116,19 +116,25 @@ void Graph::getPath(int x, int y, string &result)
     }
 
     // 递归输出最短路径
-    DFS(x, y, result);
+    int sum = 0;
+    DFS(x, y, result, sum);
+    result += "\n长度：" + to_string(sum);
 }
 
 // 深度优先搜索输出路径
-void Graph::DFS(int x, int y, string &result)
+void Graph::DFS(int x, int y, string &result, int &sum)
 {
     if (dis[y].previous.empty())
+    {
         result = result + "\n" + vertex[x].place + " -> " + vertex[y].place;
+        sum += AdjacencyMatrix[x][y];
+    }
     // 将节点所有分支搜索完
     while (!dis[y].previous.empty())
     {
-        DFS(x, dis[y].previous.top(), result);
+        DFS(x, dis[y].previous.top(), result, sum);
         result = result + " -> " + vertex[y].place;
+        sum += AdjacencyMatrix[dis[y].previous.top()][y];
         dis[y].backup.push(dis[y].previous.top());
         dis[y].previous.pop();
     }
@@ -170,9 +176,15 @@ void Graph::getAllPath(int x, int y, bool refresh, string &result)
             {
                 // start 静态变量保存路径起始点
                 result = result + vertex[start].place;
+                int sum = 0;
+                int pos = start;
                 for (int p = 0; path[p] != INT_MAX; p++)
+                {
                     result = result + " -> " + vertex[path[p]].place;
-                result = result + "\n";
+                    sum += AdjacencyMatrix[pos][path[p]];
+                    pos = path[p];
+                }
+                result = result + "\n路径长度：" + to_string(sum) + "\n";
                 mark[i] = 0;
                 path[--count] = INT_MAX;
                 return;
