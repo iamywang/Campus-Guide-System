@@ -70,7 +70,7 @@ void Graph::delPath(int x, int y)
 }
 
 // 寻找路径
-void Graph::getPath(int x, int y, string &result)
+void Graph::getPath(int x, int y, string &result, int &sum)
 {
     int rest[PLACES] = {0};
     rest[x] = 1;
@@ -116,9 +116,7 @@ void Graph::getPath(int x, int y, string &result)
     }
 
     // 递归输出最短路径
-    int sum = 0;
     DFS(x, y, result, sum);
-    result += "\n长度：" + to_string(sum);
 }
 
 // 深度优先搜索输出路径
@@ -200,9 +198,107 @@ void Graph::getAllPath(int x, int y, bool refresh, string &result)
 //多景点查询
 void Graph::multiPath(int x, int y, int z, string &result)
 {
-    string r1 = "";
-    string r2 = "";
-    getPath(x, y, r1);
-    getPath(y, z, r2);
-    result = r1 + r2;
+    // 保存每条路径
+    MultiRoad mr[ROADS];
+    for (int i = 0; i < ROADS; i++)
+    {
+        mr[i].flag = false;
+        mr[i].sum = 0;
+        mr[i].result = "";
+    }
+    int c1 = 0;
+    MultiRoad min;
+    min.flag = true;
+    min.sum = INT_MAX;
+    min.result = "";
+    multiGetAllPath(x, y, z, true, c1, mr);
+    for (int i = 0; i < c1; i++)
+    {
+        if (mr[i].flag == true && mr[i].sum < min.sum)
+            min = mr[i];
+    }
+    int c2 = c1;
+    multiGetAllPath(x, y, z, true, c2, mr);
+    for (int i = c1; i < c2; i++)
+    {
+        if (mr[i].flag == true && mr[i].sum < min.sum)
+            min = mr[i];
+    }
+    if (min.result == "")
+    {
+        string r1 = "";
+        string r2 = "";
+        int s1 = 0;
+        int s2 = 0;
+        getPath(x, y, r1, s1);
+        getPath(y, z, r2, s2);
+        min.sum = s1 + s2;
+        min.result = r1 + r2;
+        getPath(x, z, r1, s1);
+        getPath(z, y, r2, s2);
+        if ((s1 + s2) < min.sum)
+        {
+            min.sum = s1 + s2;
+            min.result = r1 + r2;
+        }
+        else if ((s1 + s2) == min.sum)
+        {
+            min.result = min.result + "\n" + r1 + r2;
+        }
+        result = min.result + "\n路径长度：" + to_string(min.sum);
+    }
+    else
+        result = "\n" + min.result + "\n路径长度：" + to_string(min.sum);
+}
+
+// 多景点遍历路径
+void Graph::multiGetAllPath(int x, int y, int z, bool refresh, int &c, MultiRoad (&mr)[ROADS])
+{
+    // 用数组保存简单路径
+    static int path[PLACES], count = 0, mark[PLACES] = {0}, start = x;
+    // 在反复调用递归函数时刷新静态变量
+    if (refresh)
+    {
+        for (int i = 0; i < PLACES; i++)
+        {
+            path[i] = INT_MAX;
+            mark[i] = 0;
+        }
+        count = 0;
+        start = x;
+    }
+    for (int i = 0; i < PLACES; i++)
+    {
+        if (AdjacencyMatrix[x][i] != INT_MAX and mark[i] == 0)
+        {
+            // 标记该节点以搜索过
+            mark[i] = 1;
+            if (x == i)
+                continue;
+            path[count++] = i;
+            // 输出路径
+            if (i == y)
+            {
+                // start 静态变量保存路径起始点
+                mr[c].result = mr[c].result + vertex[start].place;
+                int pos = start;
+                for (int p = 0; path[p] != INT_MAX; p++)
+                {
+                    if (path[p] == z)
+                        mr[c].flag = true;
+                    mr[c].result = mr[c].result + " -> " + vertex[path[p]].place;
+                    mr[c].sum += AdjacencyMatrix[pos][path[p]];
+                    pos = path[p];
+                }
+                c++;
+                mark[i] = 0;
+                path[--count] = INT_MAX;
+                return;
+            }
+            multiGetAllPath(i, y, z, false, c, mr);
+            // 删除标记
+            mark[i] = 0;
+            path[--count] = INT_MAX;
+        }
+    }
 }

@@ -2,6 +2,7 @@
 #include <stack>
 #include <climits>
 #define PLACES 20
+#define ROADS 50
 using namespace std;
 
 // 构造表节点
@@ -18,6 +19,14 @@ typedef struct
   // 作为路径栈的备份
   stack<int> backup;
 } Path;
+
+// 保存路径
+typedef struct
+{
+  int sum;
+  bool flag;
+  string result;
+} MultiRoad;
 
 class Graph
 {
@@ -44,9 +53,9 @@ public:
   // 删除路径
   void delPath(int x, int y);
   // 寻找路径
-  void getPath(int x, int y, string &result);
+  void getPath(int x, int y, string &result, int &sum);
   // 深度优先搜索输出路径
-  void DFS(int x, int y, string &result,int &sum);
+  void DFS(int x, int y, string &result, int &sum);
   // 将栈清空
   void cleanStack(stack<int> &stack)
   {
@@ -57,4 +66,6 @@ public:
   void getAllPath(int x, int y, bool refresh, string &result);
   // 多景点查询
   void multiPath(int x, int y, int z, string &result);
+  // 多景点遍历路径
+  void multiGetAllPath(int x, int y, int z, bool refresh, int &c, MultiRoad (&mr)[ROADS]);
 };
