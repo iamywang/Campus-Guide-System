@@ -1,5 +1,17 @@
 #include "Headers/GuideWindow.h"
 
+// 设定最短路径动态演示
+void Ui_GuideWindow::setPaint()
+{
+    w = new Widget();
+    w->setParent(page_3);
+    w->setGeometry(QRect(30, 400, 740, 250));
+    for (int i = 0; i < 12; i++)
+    {
+        w->addVertex(60 * i + 40, 130 * (i % 2) + 40, i + 1);
+    }
+}
+
 // 设定左侧切换事件
 void Ui_GuideWindow::setLeftEvents()
 {
@@ -28,6 +40,7 @@ void Ui_GuideWindow::setMainEvents()
         int num2 = info_text_5->toPlainText().toInt();
         int dis = info_text_6->toPlainText().toInt();
         g.setPath(num1, num2, dis);
+        w->addEdge(60 * (num1 - 1) + 50, 130 * ((num1 - 1) % 2) + 50, 60 * (num2 - 1) + 50, 130 * ((num2 - 1) % 2) + 50);
     });
     // 删除景点
     QObject::connect(info_button_3, &QAbstractButton::clicked, [=]() mutable {
@@ -452,18 +465,28 @@ void Ui_GuideWindow::setupUi(QMainWindow *GuideWindow)
     demo_title->setGeometry(QRect(0, 0, 250, 40));
     demo_title->setFont(font2);
     demo_title->setAlignment(Qt::AlignCenter);
+    demo_button_1 = new QPushButton(page_7);
+    demo_button_1->setObjectName(QString::fromUtf8("demo_button_1"));
+    demo_button_1->setGeometry(QRect(580, 620, 200, 40));
+    demo_button_1->setFont(font4);
+    demo_label_2 = new QLabel(page_7);
+    demo_label_2->setObjectName(QString::fromUtf8("demo_label_2"));
+    demo_label_2->setGeometry(QRect(20, 550, 760, 40));
+    QFont font8;
+    font8.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+    font8.setPointSize(11);
+    font8.setBold(false);
+    font8.setWeight(50);
+    demo_label_2->setFont(font8);
+    demo_label_2->setAlignment(Qt::AlignCenter);
     demo_label_1 = new QLabel(page_7);
     demo_label_1->setObjectName(QString::fromUtf8("demo_label_1"));
-    demo_label_1->setGeometry(QRect(20, 110, 760, 436));
+    demo_label_1->setGeometry(QRect(20, 70, 760, 430));
     demo_label_1->setFont(font5);
     demo_label_1->setAutoFillBackground(false);
     demo_label_1->setPixmap(QPixmap(QString::fromUtf8("Resources/map.png")));
     demo_label_1->setScaledContents(true);
     demo_label_1->setAlignment(Qt::AlignCenter);
-    demo_button_1 = new QPushButton(page_7);
-    demo_button_1->setObjectName(QString::fromUtf8("demo_button_1"));
-    demo_button_1->setGeometry(QRect(580, 620, 200, 40));
-    demo_button_1->setFont(font4);
     stackedWidget->addWidget(page_7);
     IconLabel = new QLabel(centralwidget);
     IconLabel->setObjectName(QString::fromUtf8("IconLabel"));
@@ -477,11 +500,11 @@ void Ui_GuideWindow::setupUi(QMainWindow *GuideWindow)
     button_left_7->setObjectName(QString::fromUtf8("button_left_7"));
     button_left_7->setGeometry(QRect(0, 420, 200, 60));
     button_left_7->setMinimumSize(QSize(0, 0));
-    QFont font8;
-    font8.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-    font8.setBold(true);
-    font8.setWeight(75);
-    button_left_7->setFont(font8);
+    QFont font9;
+    font9.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+    font9.setBold(true);
+    font9.setWeight(75);
+    button_left_7->setFont(font9);
     QIcon icon1;
     icon1.addFile(QString::fromUtf8("Resources/sdu.png"), QSize(), QIcon::Normal, QIcon::Off);
     button_left_7->setIcon(icon1);
@@ -490,7 +513,7 @@ void Ui_GuideWindow::setupUi(QMainWindow *GuideWindow)
     button_left_2->setObjectName(QString::fromUtf8("button_left_2"));
     button_left_2->setGeometry(QRect(0, 140, 200, 60));
     button_left_2->setMinimumSize(QSize(0, 0));
-    button_left_2->setFont(font8);
+    button_left_2->setFont(font9);
     QIcon icon2;
     icon2.addFile(QString::fromUtf8("Resources/searchinfo.png"), QSize(), QIcon::Normal, QIcon::Off);
     button_left_2->setIcon(icon2);
@@ -499,7 +522,7 @@ void Ui_GuideWindow::setupUi(QMainWindow *GuideWindow)
     button_left_1->setObjectName(QString::fromUtf8("button_left_1"));
     button_left_1->setGeometry(QRect(0, 70, 200, 60));
     button_left_1->setMinimumSize(QSize(0, 0));
-    button_left_1->setFont(font8);
+    button_left_1->setFont(font9);
     QIcon icon3;
     icon3.addFile(QString::fromUtf8("Resources/writeinfo.png"), QSize(), QIcon::Normal, QIcon::Off);
     button_left_1->setIcon(icon3);
@@ -508,7 +531,7 @@ void Ui_GuideWindow::setupUi(QMainWindow *GuideWindow)
     button_left_3->setObjectName(QString::fromUtf8("button_left_3"));
     button_left_3->setGeometry(QRect(0, 210, 200, 60));
     button_left_3->setMinimumSize(QSize(0, 0));
-    button_left_3->setFont(font8);
+    button_left_3->setFont(font9);
     QIcon icon4;
     icon4.addFile(QString::fromUtf8("Resources/findroad.png"), QSize(), QIcon::Normal, QIcon::Off);
     button_left_3->setIcon(icon4);
@@ -517,7 +540,7 @@ void Ui_GuideWindow::setupUi(QMainWindow *GuideWindow)
     button_left_4->setObjectName(QString::fromUtf8("button_left_4"));
     button_left_4->setGeometry(QRect(0, 280, 200, 60));
     button_left_4->setMinimumSize(QSize(0, 0));
-    button_left_4->setFont(font8);
+    button_left_4->setFont(font9);
     QIcon icon5;
     icon5.addFile(QString::fromUtf8("Resources/allroad.png"), QSize(), QIcon::Normal, QIcon::Off);
     button_left_4->setIcon(icon5);
@@ -526,7 +549,7 @@ void Ui_GuideWindow::setupUi(QMainWindow *GuideWindow)
     button_left_6->setObjectName(QString::fromUtf8("button_left_6"));
     button_left_6->setGeometry(QRect(0, 490, 200, 60));
     button_left_6->setMinimumSize(QSize(0, 0));
-    button_left_6->setFont(font8);
+    button_left_6->setFont(font9);
     QIcon icon6;
     icon6.addFile(QString::fromUtf8("Resources/about.png"), QSize(), QIcon::Normal, QIcon::Off);
     button_left_6->setIcon(icon6);
@@ -535,7 +558,7 @@ void Ui_GuideWindow::setupUi(QMainWindow *GuideWindow)
     button_left_5->setObjectName(QString::fromUtf8("button_left_5"));
     button_left_5->setGeometry(QRect(0, 350, 200, 60));
     button_left_5->setMinimumSize(QSize(0, 0));
-    button_left_5->setFont(font8);
+    button_left_5->setFont(font9);
     QIcon icon7;
     icon7.addFile(QString::fromUtf8("Resources/multiplaces.png"), QSize(), QIcon::Normal, QIcon::Off);
     button_left_5->setIcon(icon7);
@@ -551,12 +574,14 @@ void Ui_GuideWindow::setupUi(QMainWindow *GuideWindow)
     pix_label_2->setObjectName(QString::fromUtf8("pix_label_2"));
     pix_label_2->setGeometry(QRect(10, 680, 180, 60));
     pix_label_2->setMinimumSize(QSize(0, 0));
-    pix_label_2->setFont(font8);
+    pix_label_2->setFont(font9);
     pix_label_2->setScaledContents(false);
     pix_label_2->setAlignment(Qt::AlignCenter);
     GuideWindow->setCentralWidget(centralwidget);
 
     retranslateUi(GuideWindow);
+
+    setPaint();
 
     stackedWidget->setCurrentIndex(5);
 
@@ -607,13 +632,14 @@ void Ui_GuideWindow::retranslateUi(QMainWindow *GuideWindow)
     plenty_label_4->setText(QApplication::translate("GuideWindow", "\346\237\245\350\257\242\347\273\223\346\236\234", nullptr));
     about_title->setText(QApplication::translate("GuideWindow", "\345\205\263\344\272\216", nullptr));
     about_label_1->setText(QApplication::translate("GuideWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600; text-decoration: underline; color:#5500ff;\">\346\233\264\346\226\260\345\206\205\345\256\271</span></p><p align=\"center\">------------------------------------------------------------------------------------------------------------------</p><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600;\">2019.2.24 </span><span style=\" font-size:10pt; font-weight:600; color:#ff0000;\">Version 2.1.4</span></p><p align=\"justify\">1. \346\226\260\345\242\236\351\201\223\350\267\257\344\277\241\346\201\257\346\237\245\350\257\242\345\212\237\350\203\275\357\274\214\350\276\223\345\205\245\351\201\223\350\267\257\350\265\267\347\202\271\345\222\214\347\273\210\347\202\271\345\215\263\345\217\257\346\237\245\350\257\242\351\201\223\350\267\257\345\205\267\344\275\223\344\277\241\346\201\257</p><p align=\"justify\">2. \346\226\260\345\242\236\350\214\203\344\276\213\345\234\260\345\233\276\357\274\214\346\224\257\346\214\201"
-                                                                  "\344\270\200\351\224\256\345\275\225\345\205\245\345\267\262\346\234\211\350\214\203\344\276\213\344\277\241\346\201\257</p><p align=\"justify\">3. \346\226\260\345\242\236\346\234\200\347\237\255\350\267\257\345\276\204\346\237\245\350\257\242\344\273\245\345\217\212\346\211\200\346\234\211\350\267\257\345\276\204\346\237\245\350\257\242\346\230\276\347\244\272\350\267\257\345\276\204\346\200\273\351\225\277\345\272\246</p><p align=\"justify\">4. \351\207\215\346\226\260\350\260\203\346\225\264\345\244\232\346\231\257\347\202\271\346\237\245\350\257\242\345\212\237\350\203\275</p><p align=\"center\">------------------------------------------------------------------------------------------------------------------</p><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600;\">2019.2.19 </span><span style=\" font-size:10pt; font-weight:600; color:#ff0000;\">Version 2.1</span></p><p align=\"justify\">1. \347\225\214\351\235\242\351\207\215\346\226\260\345\270\203\345\261\200</p><p align=\"justify\">2. "
-                                                                  "\346\226\260\345\242\236\345\205\263\344\272\216\347\225\214\351\235\242</p><p align=\"justify\">3. \344\277\256\345\244\215\346\227\240\346\263\225\346\230\276\347\244\272\350\267\257\345\276\204\347\232\204bug</p><p align=\"justify\">4. \345\233\276\346\240\207\350\260\203\346\225\264</p><p align=\"justify\">5. \346\231\257\347\202\271\344\277\241\346\201\257\345\210\240\351\231\244\345\212\237\350\203\275\357\274\214\345\217\257\344\273\245\345\210\240\351\231\244\350\277\231\346\235\241\347\274\226\345\217\267\347\232\204\346\231\257\347\202\271\344\277\241\346\201\257\345\217\212\345\205\266\346\211\200\346\234\211\347\233\270\345\205\263\351\201\223\350\267\257\344\277\241\346\201\257</p><p align=\"justify\">6. \351\201\223\350\267\257\344\277\241\346\201\257\345\210\240\351\231\244\345\212\237\350\203\275\357\274\214\346\240\271\346\215\256\351\201\223\350\267\257\350\265\267\347\202\271\344\270\216\347\273\210\347\202\271\345\210\240\351\231\244\346\225\264\346\235\241\351\201\223\350\267\257\344\277\241"
-                                                                  "\346\201\257</p><p align=\"center\">------------------------------------------------------------------------------------------------------------------</p></body></html>",
+                                                                  "\344\270\200\351\224\256\345\275\225\345\205\245\345\267\262\346\234\211\350\214\203\344\276\213\344\277\241\346\201\257</p><p align=\"justify\">3. \346\226\260\345\242\236\346\234\200\347\237\255\350\267\257\345\276\204\346\237\245\350\257\242\344\273\245\345\217\212\346\211\200\346\234\211\350\267\257\345\276\204\346\237\245\350\257\242\346\230\276\347\244\272\350\267\257\345\276\204\346\200\273\351\225\277\345\272\246</p><p align=\"justify\">4. \351\207\215\346\226\260\350\260\203\346\225\264\345\244\232\346\231\257\347\202\271\346\237\245\350\257\242\345\212\237\350\203\275</p><p align=\"justify\">5. \345\275\225\345\205\245\350\214\203\344\276\213\345\234\260\345\233\276\345\220\216\357\274\214\345\275\225\345\205\245\350\267\257\345\276\204\343\200\201\346\237\245\350\257\242\346\234\200\347\237\255\350\267\257\345\276\204\346\227\266\357\274\214\345\234\250\350\214\203\344\276\213\345\233\276\347\211\207\344\270\212\345\235\207\344\274\232\346\230\276\347\244\272\350\267\257\345\276\204\347\272\277\346\235"
+                                                                  "\241\343\200\202</p><p align=\"center\">------------------------------------------------------------------------------------------------------------------</p><p align=\"justify\"><span style=\" font-size:10pt; font-weight:600;\">2019.2.19 </span><span style=\" font-size:10pt; font-weight:600; color:#ff0000;\">Version 2.1</span></p><p align=\"justify\">1. \347\225\214\351\235\242\351\207\215\346\226\260\345\270\203\345\261\200</p><p align=\"justify\">2. \346\226\260\345\242\236\345\205\263\344\272\216\347\225\214\351\235\242</p><p align=\"justify\">3. \344\277\256\345\244\215\346\227\240\346\263\225\346\230\276\347\244\272\350\267\257\345\276\204\347\232\204bug</p><p align=\"justify\">4. \345\233\276\346\240\207\350\260\203\346\225\264</p><p align=\"justify\">5. \346\231\257\347\202\271\344\277\241\346\201\257\345\210\240\351\231\244\345\212\237\350\203\275\357\274\214\345\217\257\344\273\245\345\210\240\351\231\244\350\277\231\346\235\241\347\274\226\345\217\267\347\232\204\346\231\257\347\202\271\344\277\241\346"
+                                                                  "\201\257\345\217\212\345\205\266\346\211\200\346\234\211\347\233\270\345\205\263\351\201\223\350\267\257\344\277\241\346\201\257</p><p align=\"justify\">6. \351\201\223\350\267\257\344\277\241\346\201\257\345\210\240\351\231\244\345\212\237\350\203\275\357\274\214\346\240\271\346\215\256\351\201\223\350\267\257\350\265\267\347\202\271\344\270\216\347\273\210\347\202\271\345\210\240\351\231\244\346\225\264\346\235\241\351\201\223\350\267\257\344\277\241\346\201\257</p><p align=\"center\">------------------------------------------------------------------------------------------------------------------</p></body></html>",
                                                    nullptr));
     demo_title->setText(QApplication::translate("GuideWindow", "\350\214\203\344\276\213\345\234\260\345\233\276", nullptr));
-    demo_label_1->setText(QString());
     demo_button_1->setText(QApplication::translate("GuideWindow", "\345\275\225\345\205\245\350\214\203\344\276\213\345\234\260\345\233\276", nullptr));
+    demo_label_2->setText(QApplication::translate("GuideWindow", "\345\275\225\345\205\245\350\214\203\344\276\213\345\234\260\345\233\276\345\220\216\357\274\214\345\275\225\345\205\245\350\267\257\345\276\204\343\200\201\346\237\245\350\257\242\346\234\200\347\237\255\350\267\257\345\276\204\346\227\266\357\274\214\345\234\250\345\233\276\347\211\207\344\270\212\345\235\207\344\274\232\346\230\276\347\244\272\350\267\257\345\276\204\347\272\277\346\235\241\343\200\202", nullptr));
+    demo_label_1->setText(QString());
     IconLabel->setText(QString());
     button_left_7->setText(QApplication::translate("GuideWindow", "\350\214\203\344\276\213\345\234\260\345\233\276", nullptr));
     button_left_2->setText(QApplication::translate("GuideWindow", "\344\277\241\346\201\257\346\237\245\350\257\242", nullptr));
@@ -625,3 +651,4 @@ void Ui_GuideWindow::retranslateUi(QMainWindow *GuideWindow)
     pix_label_1->setText(QString());
     pix_label_2->setText(QApplication::translate("GuideWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Powered by Y.Wang</span></p><p align=\"center\"><span style=\" color:#ffffff;\">2019.2.24</span></p></body></html>", nullptr));
 }
+

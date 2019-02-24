@@ -1169,7 +1169,7 @@
        </font>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; text-decoration: underline; color:#5500ff;&quot;&gt;更新内容&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;------------------------------------------------------------------------------------------------------------------&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;2019.2.24 &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ff0000;&quot;&gt;Version 2.1.4&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. 新增道路信息查询功能，输入道路起点和终点即可查询道路具体信息&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;2. 新增范例地图，支持一键录入已有范例信息&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;3. 新增最短路径查询以及所有路径查询显示路径总长度&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;4. 重新调整多景点查询功能&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;------------------------------------------------------------------------------------------------------------------&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;2019.2.19 &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ff0000;&quot;&gt;Version 2.1&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. 界面重新布局&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;2. 新增关于界面&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;3. 修复无法显示路径的bug&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;4. 图标调整&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;5. 景点信息删除功能，可以删除这条编号的景点信息及其所有相关道路信息&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;6. 道路信息删除功能，根据道路起点与终点删除整条道路信息&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;------------------------------------------------------------------------------------------------------------------&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; text-decoration: underline; color:#5500ff;&quot;&gt;更新内容&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;------------------------------------------------------------------------------------------------------------------&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;2019.2.24 &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ff0000;&quot;&gt;Version 2.1.4&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. 新增道路信息查询功能，输入道路起点和终点即可查询道路具体信息&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;2. 新增范例地图，支持一键录入已有范例信息&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;3. 新增最短路径查询以及所有路径查询显示路径总长度&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;4. 重新调整多景点查询功能&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;5. 录入范例地图后，录入路径、查询最短路径时，在范例图片上均会显示路径线条。&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;------------------------------------------------------------------------------------------------------------------&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;2019.2.19 &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600; color:#ff0000;&quot;&gt;Version 2.1&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;1. 界面重新布局&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;2. 新增关于界面&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;3. 修复无法显示路径的bug&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;4. 图标调整&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;5. 景点信息删除功能，可以删除这条编号的景点信息及其所有相关道路信息&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;6. 道路信息删除功能，根据道路起点与终点删除整条道路信息&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;------------------------------------------------------------------------------------------------------------------&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="textFormat">
        <enum>Qt::RichText</enum>
@@ -1204,13 +1204,58 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <widget class="QPushButton" name="demo_button_1">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>620</y>
+        <width>200</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>11</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>录入范例地图</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="demo_label_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>550</y>
+        <width>760</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>11</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>录入范例地图后，录入路径、查询最短路径时，在图片上均会显示路径线条。</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
      <widget class="QLabel" name="demo_label_1">
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>110</y>
+        <y>70</y>
         <width>760</width>
-        <height>436</height>
+        <height>430</height>
        </rect>
       </property>
       <property name="font">
@@ -1232,27 +1277,6 @@
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="demo_button_1">
-      <property name="geometry">
-       <rect>
-        <x>580</x>
-        <y>620</y>
-        <width>200</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>11</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>录入范例地图</string>
       </property>
      </widget>
     </widget>

@@ -8,12 +8,14 @@
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "Paint.h"
 #include "../Graph.cpp"
 
 class Ui_GuideWindow
 {
 public:
   Graph g;
+  Widget *w;
   QWidget *centralwidget;
   QLabel *TitleLabel;
   QStackedWidget *stackedWidget;
@@ -85,18 +87,17 @@ public:
   QLabel *about_label_1;
   QWidget *page_7;
   QLabel *demo_title;
-  QLabel *demo_label_1;
   QPushButton *demo_button_1;
+  QLabel *demo_label_2;
+  QLabel *demo_label_1;
   QLabel *IconLabel;
-
-  QPushButton *button_left_1;
+  QPushButton *button_left_7;
   QPushButton *button_left_2;
+  QPushButton *button_left_1;
   QPushButton *button_left_3;
   QPushButton *button_left_4;
-  QPushButton *button_left_5;
   QPushButton *button_left_6;
-  QPushButton *button_left_7;
-
+  QPushButton *button_left_5;
   QLabel *pix_label_1;
   QLabel *pix_label_2;
 
@@ -111,4 +112,6 @@ public:
   void setMainEvents();
   // 设定范例地图
   void setupDemo();
+  // 设定最短路径动态演示
+  void setPaint();
 };
