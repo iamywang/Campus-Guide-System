@@ -70,7 +70,7 @@ void Graph::delPath(int x, int y)
 }
 
 // 寻找路径
-void Graph::getPath(int x, int y, string &result, int &sum)
+void Graph::getPath(int x, int y, string &result, int &sum, int (&v)[PLACES])
 {
     int rest[PLACES] = {0};
     rest[x] = 1;
@@ -116,23 +116,27 @@ void Graph::getPath(int x, int y, string &result, int &sum)
     }
 
     // 递归输出最短路径
-    DFS(x, y, result, sum);
+    int c = 0;
+    DFS(x, y, result, sum, v, c);
 }
 
 // 深度优先搜索输出路径
-void Graph::DFS(int x, int y, string &result, int &sum)
+void Graph::DFS(int x, int y, string &result, int &sum, int (&v)[PLACES], int &c)
 {
     if (dis[y].previous.empty())
     {
         result = result + "\n" + to_string(x) + " " + vertex[x].place + " -> " + to_string(y) + " " + vertex[y].place;
         sum += AdjacencyMatrix[x][y];
+        v[c++] = x;
+        v[c++] = y;
     }
     // 将节点所有分支搜索完
     while (!dis[y].previous.empty())
     {
-        DFS(x, dis[y].previous.top(), result, sum);
-        result = result + " -> " + to_string(x) + " " + vertex[y].place;
+        DFS(x, dis[y].previous.top(), result, sum, v, c);
+        result = result + " -> " + to_string(y) + " " + vertex[y].place;
         sum += AdjacencyMatrix[dis[y].previous.top()][y];
+        v[c++] = y;
         dis[y].backup.push(dis[y].previous.top());
         dis[y].previous.pop();
     }
@@ -230,12 +234,13 @@ void Graph::multiPath(int x, int y, int z, string &result)
         string r2 = "";
         int s1 = 0;
         int s2 = 0;
-        getPath(x, y, r1, s1);
-        getPath(y, z, r2, s2);
+        int tmp[PLACES];
+        getPath(x, y, r1, s1, tmp);
+        getPath(y, z, r2, s2, tmp);
         min.sum = s1 + s2;
         min.result = r1 + r2;
-        getPath(x, z, r1, s1);
-        getPath(z, y, r2, s2);
+        getPath(x, z, r1, s1, tmp);
+        getPath(z, y, r2, s2, tmp);
         if ((s1 + s2) < min.sum)
         {
             min.sum = s1 + s2;

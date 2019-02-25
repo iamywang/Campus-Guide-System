@@ -40,38 +40,36 @@ class Widget : public QWidget
         p.drawPixmap(0, 0, 740, 250, pixmap);
     }
 
-    void addVertex(int x, int y, int n)
+    void addVertex(int n)
     {
         Vertex *v = new Vertex();
         v->setParent(this);
-        v->setGeometry(QRect(x, y, 24, 24));
+        v->setGeometry(QRect(14 * (n % 6) * (n % 6) + 20 * n + 40, 20 * (n % 2) * (n % 2) + 15 * n + 40, 24, 24));
         v->label->setText(QString::number(n));
         update();
     }
 
-    void addEdge(int x1, int y1, int x2, int y2)
+    void addEdge(int num1, int num2)
     {
         QPainter p(&pixmap);
         p.setPen(QPen(Qt::black, 2));
-        p.drawLine(x1, y1, x2, y2);
+        p.drawLine(14 * (num1 % 6) * (num1 % 6) + 20 * num1 + 52, 20 * (num1 % 2) * (num1 % 2) + 15 * num1 + 52, 14 * (num2 % 6) * (num2 % 6) + 20 * num2 + 52, 20 * (num2 % 2) * (num2 % 2) + 15 * num2 + 52);
         update();
     }
 
-    void delEdge(int x1, int y1, int x2, int y2)
+    void delEdge(int num1, int num2)
     {
         QPainter p(&pixmap);
         p.setPen(QPen(Qt::white, 2));
-        p.drawLine(x1, y1, x2, y2);
+        p.drawLine(14 * (num1 % 6) * (num1 % 6) + 20 * num1 + 52, 20 * (num1 % 2) * (num1 % 2) + 15 * num1 + 52, 14 * (num2 % 6) * (num2 % 6) + 20 * num2 + 52, 20 * (num2 % 2) * (num2 % 2) + 15 * num2 + 52);
         update();
     }
 
-    void setActiveVertex(int x, int y, int n)
+    void addActiveEdge(int num1, int num2)
     {
-        Vertex *v = new Vertex();
-        v->setParent(this);
-        v->setGeometry(QRect(x, y, 24, 24));
-        v->label->setText(QString::number(n));
-        v->label->setStyleSheet("color:red;");
+        QPainter p(&pixmap);
+        p.setPen(QPen(Qt::red, 2));
+        p.drawLine(14 * (num1 % 6) * (num1 % 6) + 20 * num1 + 52, 20 * (num1 % 2) * (num1 % 2) + 15 * num1 + 52, 14 * (num2 % 6) * (num2 % 6) + 20 * num2 + 52, 20 * (num2 % 2) * (num2 % 2) + 15 * num2 + 52);
         update();
     }
 

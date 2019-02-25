@@ -53,9 +53,9 @@ public:
   // 删除路径
   void delPath(int x, int y);
   // 寻找路径
-  void getPath(int x, int y, string &result, int &sum);
+  void getPath(int x, int y, string &result, int &sum, int (&v)[PLACES]);
   // 深度优先搜索输出路径
-  void DFS(int x, int y, string &result, int &sum);
+  void DFS(int x, int y, string &result, int &sum, int (&v)[PLACES], int &c);
   // 将栈清空
   void cleanStack(stack<int> &stack)
   {
