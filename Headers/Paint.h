@@ -14,7 +14,7 @@ class Vertex : public QWidget
     void paintEvent(QPaintEvent *)
     {
         QPainter p(this);
-        p.setPen(QPen(Qt::black, 1));
+        p.setPen(QPen(Qt::black, 2));
         p.drawEllipse(0, 0, 24, 24);
     }
     Vertex()
@@ -33,11 +33,13 @@ class Widget : public QWidget
         pixmap = QPixmap(740, 250);
         pixmap.fill(Qt::white);
     }
+
     void paintEvent(QPaintEvent *)
     {
         QPainter p(this);
         p.drawPixmap(0, 0, 740, 250, pixmap);
     }
+
     void addVertex(int x, int y, int n)
     {
         Vertex *v = new Vertex();
@@ -46,6 +48,7 @@ class Widget : public QWidget
         v->label->setText(QString::number(n));
         update();
     }
+
     void addEdge(int x1, int y1, int x2, int y2)
     {
         QPainter p(&pixmap);
@@ -53,11 +56,22 @@ class Widget : public QWidget
         p.drawLine(x1, y1, x2, y2);
         update();
     }
-    void addActiveEdge(int x1, int y1, int x2, int y2)
+
+    void delEdge(int x1, int y1, int x2, int y2)
     {
         QPainter p(&pixmap);
-        p.setPen(QPen(Qt::blue, 2));
+        p.setPen(QPen(Qt::white, 2));
         p.drawLine(x1, y1, x2, y2);
+        update();
+    }
+
+    void setActiveVertex(int x, int y, int n)
+    {
+        Vertex *v = new Vertex();
+        v->setParent(this);
+        v->setGeometry(QRect(x, y, 24, 24));
+        v->label->setText(QString::number(n));
+        v->label->setStyleSheet("color:red;");
         update();
     }
 

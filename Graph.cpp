@@ -124,14 +124,14 @@ void Graph::DFS(int x, int y, string &result, int &sum)
 {
     if (dis[y].previous.empty())
     {
-        result = result + "\n" + vertex[x].place + " -> " + vertex[y].place;
+        result = result + "\n" + to_string(x) + " " + vertex[x].place + " -> " + to_string(y) + " " + vertex[y].place;
         sum += AdjacencyMatrix[x][y];
     }
     // 将节点所有分支搜索完
     while (!dis[y].previous.empty())
     {
         DFS(x, dis[y].previous.top(), result, sum);
-        result = result + " -> " + vertex[y].place;
+        result = result + " -> " + to_string(x) + " " + vertex[y].place;
         sum += AdjacencyMatrix[dis[y].previous.top()][y];
         dis[y].backup.push(dis[y].previous.top());
         dis[y].previous.pop();
@@ -173,12 +173,12 @@ void Graph::getAllPath(int x, int y, bool refresh, string &result)
             if (i == y)
             {
                 // start 静态变量保存路径起始点
-                result = result + vertex[start].place;
+                result = result + to_string(start) + " " + vertex[start].place;
                 int sum = 0;
                 int pos = start;
                 for (int p = 0; path[p] != INT_MAX; p++)
                 {
-                    result = result + " -> " + vertex[path[p]].place;
+                    result = result + " -> " + to_string(path[p]) + " " + vertex[path[p]].place;
                     sum += AdjacencyMatrix[pos][path[p]];
                     pos = path[p];
                 }
@@ -280,13 +280,13 @@ void Graph::multiGetAllPath(int x, int y, int z, bool refresh, int &c, MultiRoad
             if (i == y)
             {
                 // start 静态变量保存路径起始点
-                mr[c].result = mr[c].result + vertex[start].place;
+                mr[c].result = mr[c].result + to_string(start) + " " + vertex[start].place;
                 int pos = start;
                 for (int p = 0; path[p] != INT_MAX; p++)
                 {
                     if (path[p] == z)
                         mr[c].flag = true;
-                    mr[c].result = mr[c].result + " -> " + vertex[path[p]].place;
+                    mr[c].result = mr[c].result + " -> " + to_string(path[p]) + " " + vertex[path[p]].place;
                     mr[c].sum += AdjacencyMatrix[pos][path[p]];
                     pos = path[p];
                 }

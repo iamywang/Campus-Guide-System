@@ -46,12 +46,17 @@ void Ui_GuideWindow::setMainEvents()
     QObject::connect(info_button_3, &QAbstractButton::clicked, [=]() mutable {
         int num = info_text_1->toPlainText().toInt();
         g.delInfo(num);
+        for (int i = 0; i < PLACES; i++)
+            w->delEdge(60 * (i - 1) + 50, 130 * ((i - 1) % 2) + 50, 60 * (num - 1) + 50, 130 * ((num - 1) % 2) + 50);
+        for (int j = 0; j < PLACES; j++)
+            w->delEdge(60 * (num - 1) + 50, 130 * ((num - 1) % 2) + 50, 60 * (j - 1) + 50, 130 * ((j - 1) % 2) + 50);
     });
     // 删除道路
     QObject::connect(info_button_4, &QAbstractButton::clicked, [=]() mutable {
         int num1 = info_text_4->toPlainText().toInt();
         int num2 = info_text_5->toPlainText().toInt();
         g.delPath(num1, num2);
+        w->delEdge(60 * (num1 - 1) + 50, 130 * ((num1 - 1) % 2) + 50, 60 * (num2 - 1) + 50, 130 * ((num2 - 1) % 2) + 50);
     });
     // 查询景点信息
     QObject::connect(search_button_1, &QAbstractButton::clicked, [=]() mutable {
@@ -73,6 +78,8 @@ void Ui_GuideWindow::setMainEvents()
         string result = "";
         int sum = 0;
         g.getPath(x, y, result, sum);
+        w->setActiveVertex(60 * (x - 1) + 40, 130 * ((x - 1) % 2) + 40, x);
+        w->setActiveVertex(60 * (y - 1) + 40, 130 * ((y - 1) % 2) + 40, y);
         result = "从 " + g.vertex[x].place + " 到 " + g.vertex[y].place + " 的最短路径为：" + result + "\n路径长度：" + to_string(sum);
         road_text_3->setPlainText(QString::fromStdString(result));
     });
@@ -651,4 +658,3 @@ void Ui_GuideWindow::retranslateUi(QMainWindow *GuideWindow)
     pix_label_1->setText(QString());
     pix_label_2->setText(QApplication::translate("GuideWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">Powered by Y.Wang</span></p><p align=\"center\"><span style=\" color:#ffffff;\">2019.2.24</span></p></body></html>", nullptr));
 }
-
