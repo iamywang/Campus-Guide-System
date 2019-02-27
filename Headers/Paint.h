@@ -30,14 +30,14 @@ class Widget : public QWidget
   public:
     Widget()
     {
-        pixmap = QPixmap(740, 250);
+        pixmap = QPixmap(760, 260);
         pixmap.fill(Qt::white);
     }
 
     void paintEvent(QPaintEvent *)
     {
         QPainter p(this);
-        p.drawPixmap(0, 0, 740, 250, pixmap);
+        p.drawPixmap(0, 0, 760, 260, pixmap);
     }
 
     void addVertex(int n)
